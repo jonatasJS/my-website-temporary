@@ -1,0 +1,355 @@
+/* .container {
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+} */
+
+.footerDistributed{
+	background-color: #292c2f;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	font: bold 16px sans-serif;
+	text-align: left;
+
+	padding: 50px 60px 40px;
+	margin-top: 80px;
+	overflow: hidden;
+}
+
+/* Footer left */
+
+.footerLeft{
+	float: left;
+}
+
+/* The company logo */
+
+.footerDistributed h3{
+	color:  #ffffff;
+	font: bold 36px "Segoe UI", cursive;
+	margin: 0 0 10px;
+  cursor: pointer;
+}
+
+.footerDistributed h3 span{
+	color:  #5383d3;
+}
+
+/* Footer links */
+
+.footerLinks{
+	color:  #ffffff;
+	margin: 0 0 10px;
+	padding: 0;
+}
+
+.footerLinks a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footerCompanyName{
+	color:  #8f9296;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+/* Footer social icons */
+
+.footerIcons{
+	margin-top: 40px;
+}
+
+.footerIcons span {
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:  #33383b;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+.discord:hover {
+  color: #5865F2;
+}
+
+.whatsapp:hover {
+  color: #2BB741;
+}
+
+/* Footer Right */
+
+.footerRight{
+	float: right;
+}
+
+.footerRight p{
+	display: inline-block;
+	vertical-align: top;
+	margin: 15px 42px 0 0;
+	color: #ffffff;
+}
+
+/* The contact form */
+
+.footerDistributed form{
+	display: inline-block;
+}
+
+.footerDistributed form input,
+.footerDistributed form textarea{
+	display: block;
+	border-radius: 3px;
+	box-sizing: border-box;
+	background-color:  #1f2022;
+	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+	border: none;
+	resize: none;
+
+	font: inherit;
+	font-size: 14px;
+	font-weight: normal;
+	color:  #d1d2d2;
+
+	width: 400px;
+	padding: 18px;
+}
+
+.footerDistributed ::-webkit-input-placeholder {
+	color:  #5c666b;
+}
+
+.footerDistributed ::-moz-placeholder {
+	color:  #5c666b;
+	opacity: 1;
+}
+
+.footerDistributed :-ms-input-placeholder{
+	color:  #5c666b;
+}
+
+
+.footerDistributed form input{
+	height: 55px;
+	margin-bottom: 15px;
+}
+
+.footerDistributed form textarea{
+	height: 100px;
+	margin-bottom: 20px;
+}
+
+.footerDistributed form button{
+	border-radius: 3px;
+	background-color:  #33383b;
+	color: #ffffff;
+	border: 0;
+	padding: 15px 50px;
+	font-weight: bold;
+	float: right;
+  cursor: pointer;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 1000px) {
+
+	.footerDistributed {
+		font: bold 14px sans-serif;
+	}
+
+	.footerCompany-name{
+		font-size: 12px;
+	}
+
+	.footerDistributed form input,
+	.footerDistributed form textarea{
+		width: 250px;
+	}
+
+	.footerDistributed form button{
+		padding: 10px 35px;
+	}
+
+}
+
+@media (max-width: 800px) {
+
+	.footerDistributed{
+		padding: 30px;
+	}
+
+	.footerLeft,
+	.footerRight{
+		float: none;
+		max-width: 300px;
+		margin: 0 auto;
+	}
+
+	.footerLeft{
+		margin-bottom: 40px;
+	}
+
+	.footerDistributed form{
+		margin-top: 30px;
+	}
+
+	.footerDistributed form{
+		display: block;
+	}
+
+	.footerDistributed form button{
+		float: none;
+	}
+}
+
+.main {
+  padding: 5rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title a {
+  color:  #5383d3;
+  text-decoration: none;
+}
+
+.title a:hover,
+.title a:focus,
+.title a:active {
+  text-decoration: underline;
+}
+
+.title {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+}
+
+.title,
+.description {
+  text-align: center;
+}
+
+.description {
+  line-height: 1.5;
+  font-size: 1.5rem;
+}
+
+.code {
+  background: #fafafa;
+  border-radius: 5px;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin-top: 3rem;
+}
+
+.card {
+  margin: 1rem;
+  padding: 1.5rem;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  transition: color 0.15s ease, borderColor 0.15s ease;
+  width: 45%;
+}
+
+.card:hover,
+.card:focus,
+.card:active {
+  color:  #5383d3;
+  border-color:  #5383d3;
+}
+
+.card h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+/* .logo {
+  height: 1em;
+  margin-left: 0.5rem;
+} */
+
+.logo {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+.logo:hover {
+  background: rgb(64, 65, 67);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.buttonToDown {
+  border: none;
+  background: #292c2f;
+  color: white;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4rem;
+  margin-right: 1.5rem;
+  margin-top: -1.5rem;
+  cursor: pointer;
+	float: right;
+}
+
+.buttonToDown:hover {
+  background: rgb(64, 65, 67);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  /* color:  #5383d3; */
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+  .buttonToDown {
+    display: none;
+  }
+}
