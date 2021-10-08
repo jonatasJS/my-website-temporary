@@ -1,10 +1,13 @@
-import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Script from 'next/script';
+import { ThemeProvider } from '../contexts/ThemeContext';
+
+import '../styles/globals.css';
+import '../styles/global.ts';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <ThemeProvider>
       <Script
         async
         strategy="lazyOnload"
@@ -30,7 +33,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         `}
       </Script>
       <Component {...pageProps} />
-    </>
+    </ThemeProvider>
   )
 }
 
