@@ -35,7 +35,7 @@ const Home: NextPage = () => {
 
       <ButtonMovePage />
 
-      <main className="services">
+      {/*<main className="services">
         <div className="row justify-content-center row-50">
           <div className="col-sm-10 col-md-8 col-lg-12">
             <div className="row justify-content-center row-50">
@@ -75,7 +75,7 @@ const Home: NextPage = () => {
             </div>
           </div>
         </div>
-      </main>
+      </main>*/}
 
       <Footer />
     </>
