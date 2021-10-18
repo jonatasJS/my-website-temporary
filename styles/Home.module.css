@@ -366,6 +366,9 @@
 .logo:hover {
 	background: rgb(64, 65, 67);
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	animation-name: rubberBand;
+	animation-duration: .8s;
+	animation-fill-mode: both;
 }
 
 .buttonToUp {
