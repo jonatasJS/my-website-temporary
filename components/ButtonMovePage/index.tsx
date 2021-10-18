@@ -1,18 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 import styles from '../../styles/Home.module.css';
 
 export default function ButtonMovePage() {
   const [isActive, setIsActive] = useState('none');
-
-  function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      setIsActive("block");
-    } else {
-      setIsActive("none");
+  useEffect(function mont() {
+    function onScroll() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        setIsActive("block");
+      } else {
+        setIsActive("none");
+      }
     }
-  }
+
+    window.addEventListener("scroll", onScroll);
+
+    return function unMount() {
+      window.addEventListener("scroll", onScroll);
+    }
+  });
 
   function toTop() {
     document.body.scrollTop = 0;
@@ -26,7 +33,6 @@ export default function ButtonMovePage() {
       }} className={styles.buttonToUp}>
         <span className="fa fa-arrow-up"></span>
       </button>
-      <script>{`window.onscroll = function () { ${scrollFunction} };`}</script>
     </>
   );
 }
