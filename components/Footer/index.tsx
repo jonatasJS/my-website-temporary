@@ -26,10 +26,10 @@ export default function Footer() {
             <br />
             <br />
             <form onSubmit={e => e.preventDefault()} action="" method="post">
-              <input type="email" name="email" placeholder="E-mail" />
-              <textarea name="message" placeholder="Mensagem"></textarea>
+              <input disabled style={{ cursor: "not-allowed" }} type="email" name="email" placeholder="E-mail" />
+              <textarea disabled style={{ cursor: "not-allowed" }} name="message" placeholder="Mensagem"></textarea>
 
-              <button>{I18n.t('buttons.send')}</button>
+              <button disabled style={{ cursor: "not-allowed" }}>{I18n.t('buttons.send')}</button>
             </form>
           </div>
 
