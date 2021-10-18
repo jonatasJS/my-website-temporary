@@ -23,7 +23,7 @@ export const lighTheme = {
     backgroundLight: '#FFFFFF',
     backgroundOverlay: 'rgba(255, 255, 255, 0.8)',
     grayLine: '#DCDDE0',
-    text: '#777777',
+    text: '#0d1117',
     textHighlight: '#B2B9FF',
     title: '#2E384D',
     red: '#E83F5B',

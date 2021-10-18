@@ -8,14 +8,77 @@
   height: 100vh;
 } */
 
-.footerDistributed{
+.language {
+	display: grid;
+	margin: -5.5rem 2rem 3rem 2rem;
+	width: 25%;
+	text-align: center;
+}
+
+.content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.content button {
+	border: none;
+	background: none;
+	padding: 0;
+}
+
+.content button:hover {
+  animation-name: rubberBand;
+  animation-duration: .8s;
+  animation-fill-mode: both;
+}
+
+@keyframes rubberBand {
+  0% {
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+  }
+  30% {
+		-webkit-transform: scale3d(1.25, 0.75, 1);
+		transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+		-webkit-transform: scale3d(0.75, 1.25, 1);
+		transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+		-webkit-transform: scale3d(1.15, 0.85, 1);
+		transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+		-webkit-transform: scale3d(.95, 1.05, 1);
+		transform: scale3d(.95, 1.05, 1);
+  }
+  75% {
+		-webkit-transform: scale3d(1.05, .95, 1);
+		transform: scale3d(1.05, .95, 1);
+  }
+  100% {
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+  }
+} 
+
+.titleSmaller {
+	line-height: 1.15;
+	font-weight: bold;
+	font-size: 1.5rem;
+	font-family: Ubuntu, Inter;
+}
+
+.footerDistributed {
 	background-color: #292c2f;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	width: 100%;
-	font: bold 16px sans-serif;
+	font: bold 16px;
+	font-family: Ubuntu, Inter;
 	text-align: left;
-
 	padding: 50px 60px 40px;
 	margin-top: 80px;
 	overflow: hidden;
@@ -23,40 +86,42 @@
 
 /* Footer left */
 
-.footerLeft{
+.footerLeft {
 	float: left;
 }
 
 /* The company logo */
 
-.footerDistributed h3{
-	color:  #ffffff;
-	font: bold 36px "Segoe UI", cursive;
+.footerDistributed h3 {
+	color: #ffffff;
+	font: bold 36px Ubuntu;
+	font-family: Ubuntu, Inter, "Segoe UI", cursive;
 	margin: 0 0 10px;
-  cursor: pointer;
+	cursor: pointer;
 }
 
-.footerDistributed h3 span{
-	color:  #5383d3;
+.footerDistributed h3 span {
+	color: #5383d3;
 }
 
 /* Footer links */
 
-.footerLinks{
-	color:  #ffffff;
+.footerLinks {
+	color: #ffffff;
 	margin: 0 0 10px;
 	padding: 0;
+	font-family: Ubuntu, Inter;
 }
 
-.footerLinks a{
-	display:inline-block;
+.footerLinks a {
+	display: inline-block;
 	line-height: 1.8;
 	text-decoration: none;
-	color:  inherit;
+	color: inherit;
 }
 
-.footerCompanyName{
-	color:  #8f9296;
+.footerCompanyName {
+	color: #8f9296;
 	font-size: 14px;
 	font-weight: normal;
 	margin: 0;
@@ -64,8 +129,10 @@
 
 /* Footer social icons */
 
-.footerIcons{
-	margin-top: 40px;
+.footerIcons {
+	margin-top: 2rem;
+	margin-bottom: .5rem;
+	justify-content: space-between;
 }
 
 .footerIcons span {
@@ -73,33 +140,32 @@
 	width: 35px;
 	height: 35px;
 	cursor: pointer;
-	background-color:  #33383b;
+	background-color: #33383b;
 	border-radius: 2px;
-
 	font-size: 20px;
 	color: #ffffff;
 	text-align: center;
 	line-height: 35px;
-
 	margin-right: 3px;
 	margin-bottom: 5px;
 }
 
 .discord:hover {
-  color: #5865F2;
+	color: #5865F2;
 }
 
 .whatsapp:hover {
-  color: #2BB741;
+	color: #2BB741;
 }
 
 /* Footer Right */
 
-.footerRight{
+.footerRight {
 	float: right;
+	font-family: Ubuntu, Inter;
 }
 
-.footerRight p{
+.footerRight p {
 	display: inline-block;
 	vertical-align: top;
 	margin: 15px 42px 0 0;
@@ -108,199 +174,180 @@
 
 /* The contact form */
 
-.footerDistributed form{
+.footerDistributed form {
 	display: inline-block;
+	margin-bottom: 2rem;
 }
 
 .footerDistributed form input,
-.footerDistributed form textarea{
+.footerDistributed form textarea {
 	display: block;
 	border-radius: 3px;
 	box-sizing: border-box;
-	background-color:  #1f2022;
+	background-color: #1f2022;
 	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
 	border: none;
 	resize: none;
-
-	font: inherit;
+	font-family: Ubuntu, Inter, inherit;
 	font-size: 14px;
 	font-weight: normal;
-	color:  #d1d2d2;
-
+	color: #fff;
 	width: 400px;
 	padding: 18px;
 }
 
 .footerDistributed ::-webkit-input-placeholder {
-	color:  #5c666b;
+	color: #5c666b;
 }
 
 .footerDistributed ::-moz-placeholder {
-	color:  #5c666b;
+	color: #5c666b;
 	opacity: 1;
 }
 
-.footerDistributed :-ms-input-placeholder{
-	color:  #5c666b;
+.footerDistributed :-ms-input-placeholder {
+	color: #5c666b;
 }
 
-
-.footerDistributed form input{
+.footerDistributed form input {
 	height: 55px;
 	margin-bottom: 15px;
 }
 
-.footerDistributed form textarea{
+.footerDistributed form textarea {
 	height: 100px;
 	margin-bottom: 20px;
 }
 
-.footerDistributed form button{
+.footerDistributed form button {
 	border-radius: 3px;
-	background-color:  #33383b;
+	background-color: #33383b;
 	color: #ffffff;
 	border: 0;
 	padding: 15px 50px;
 	font-weight: bold;
 	float: right;
-  cursor: pointer;
+	cursor: pointer;
+	width: 100%;
 }
 
 /* If you don't want the footer to be responsive, remove these media queries */
 
 @media (max-width: 1000px) {
-
 	.footerDistributed {
-		font: bold 14px sans-serif;
+		font: bold 14px Ubuntu, Inter;
 	}
-
-	.footerCompany-name{
+	.footerCompany-name {
 		font-size: 12px;
 	}
-
-	.footerDistributed form input,
-	.footerDistributed form textarea{
+	.footerDistributed form input, .footerDistributed form textarea {
 		width: 250px;
 	}
-
-	.footerDistributed form button{
+	.footerDistributed form button {
 		padding: 10px 35px;
 	}
-
 }
 
 @media (max-width: 800px) {
-
-	.footerDistributed{
+	.footerDistributed {
 		padding: 30px;
 	}
-
-	.footerLeft,
-	.footerRight{
+	.footerLeft, .footerRight {
 		float: none;
 		max-width: 300px;
 		margin: 0 auto;
 	}
-
-	.footerLeft{
+	.footerLeft {
 		margin-bottom: 40px;
 	}
-
-	.footerDistributed form{
+	.footerDistributed form {
 		margin-top: 30px;
 	}
-
-	.footerDistributed form{
+	.footerDistributed form {
 		display: block;
 	}
-
-	.footerDistributed form button{
+	.footerDistributed form button {
 		float: none;
 	}
 }
 
 .main {
-  padding: 5rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	padding: 5rem 0;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .title a {
-  color:  #5383d3;
-  text-decoration: none;
+	color: #5383d3;
+	text-decoration: none;
 }
 
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
+.title a:hover, .title a:focus, .title a:active {
+	text-decoration: underline;
 }
 
 .title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
+	margin: 0;
+	line-height: 1.15;
+	font-size: 4rem;
+	font-family: Ubuntu, Inter;
 }
 
-.title,
-.description {
-  text-align: center;
+.title, .description {
+	text-align: center;
 }
 
 .description {
-  line-height: 1.5;
-  font-size: 1.5rem;
+	line-height: 1.5;
+	font-size: 1.5rem;
 }
 
 .code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+	background: #fafafa;
+	border-radius: 5px;
+	padding: 0.75rem;
+	font-size: 1.1rem;
+	font-family: Ubuntu, Inter, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
 .grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
-  margin-top: 3rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	max-width: 800px;
+	margin-top: 3rem;
 }
 
 .card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, borderColor 0.15s ease;
-  width: 45%;
+	margin: 1rem;
+	padding: 1.5rem;
+	text-align: left;
+	color: inherit;
+	text-decoration: none;
+	border: 1px solid #eaeaea;
+	border-radius: 10px;
+	transition: color 0.15s ease, borderColor 0.15s ease;
+	width: 45%;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color:  #5383d3;
-  border-color:  #5383d3;
+.card:hover, .card:focus, .card:active {
+	color: #5383d3;
+	border-color: #5383d3;
 }
 
 .card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+	margin: 0 0 1rem 0;
+	font-size: 1.5rem;
 }
 
 .card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+	margin: 0;
+	font-size: 1.25rem;
+	line-height: 1.5;
 }
 
 /* .logo {
@@ -309,47 +356,50 @@
 } */
 
 .logo {
-  width: 20rem;
-  height: 20rem;
-  border-radius: 50%;
-  margin-top: 5rem;
-  margin-bottom: 2rem;
-  cursor: pointer;
+	width: 20rem;
+	height: 20rem;
+	border-radius: 50%;
+	margin-top: 5rem;
+	margin-bottom: 2rem;
+	cursor: pointer;
 }
 
 .logo:hover {
-  background: rgb(64, 65, 67);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	background: rgb(64, 65, 67);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.buttonToDown {
-  border: none;
-  background: #292c2f;
-  color: white;
-  border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 4rem;
-  margin-right: 1.5rem;
-  margin-top: -1.5rem;
-  cursor: pointer;
+.buttonToUp {
+	border: none;
+	background: rgb(64, 65, 67);
+	color: white;
+	border-radius: 50%;
+	width: 3rem;
+	height: 3rem;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 4rem;
+	margin-right: 1.5rem;
+	margin-top: -1.5rem;
+	cursor: pointer;
 	float: right;
+	display: none;
+  position: fixed;
+  bottom: -2.5rem;
+  right: .05rem;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 99;
 }
 
-.buttonToDown:hover {
-  background: rgb(64, 65, 67);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  /* color:  #5383d3; */
+.buttonToUp:hover {
+	background: rgb(99, 101, 104);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	/* color:  #5383d3; */
 }
 
 @media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
-  .buttonToDown {
-    display: none;
-  }
+	.grid {
+		width: 100%;
+		flex-direction: column;
+	}
 }
