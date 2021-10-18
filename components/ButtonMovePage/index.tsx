@@ -4,9 +4,7 @@ import Link from "next/link";
 import styles from '../../styles/Home.module.css';
 
 export default function ButtonMovePage() {
-  const [isActive, setIsActive] = useState('none')
-
-  window.onscroll = function () { scrollFunction() };
+  const [isActive, setIsActive] = useState('none');
 
   function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -28,6 +26,7 @@ export default function ButtonMovePage() {
       }} className={styles.buttonToUp}>
         <span className="fa fa-arrow-up"></span>
       </button>
+      <script>{`window.onscroll = function () { ${scrollFunction} };`}</script>
     </>
   );
 }
