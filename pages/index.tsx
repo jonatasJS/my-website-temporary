@@ -36,7 +36,7 @@ const Home: NextPage = () => {
           <div className={styles.content}>
             <button onClick={() => handleClick('pt-BR')}>
               <Image
-                src={`https://lipis.github.io/flag-icon-css/flags/4x3/br.svg`}
+                src={`https://flagicons.lipis.dev/flags/4x3/br.svg`}
                 alt="Picture of the author"
                 width={40}
                 height={40}
@@ -46,7 +46,7 @@ const Home: NextPage = () => {
 
             <button onClick={() => handleClick('en-US')}>
               <Image
-                src={`https://lipis.github.io/flag-icon-css/flags/4x3/us.svg`}
+                src={`https://flagicons.lipis.dev/flags/4x3/us.svg`}
                 alt="Picture of the author"
                 width={40}
                 height={40}
