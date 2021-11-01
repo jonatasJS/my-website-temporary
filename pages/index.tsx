@@ -25,7 +25,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Next Rocket</title>
         <meta name="description" content="Create by Jonatas Souza Soares" />
-        <link rel="icon" href="/next-rocket-logo.jpg" />
+        <link rel="icon" href="https://i.imgur.com/XG63jgi.png" />
       </Head>
       
       <ButtonMovePage />
