@@ -1,8 +1,9 @@
 import React from 'react';
-import type { NextPage } from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
+// import { Helmet } from 'react-helmet';
 
 import ButtonMovePage from '../components/ButtonMovePage/index';
 // import Services from '../components/Services/index';
@@ -11,10 +12,18 @@ import { I18n } from '../translate/i18n';
 import styles from '../styles/Home.module.css';
 import Footer from '../components/Footer';
 
-const Home: NextPage = () => {
+interface DataUserTest {
+  tag: string;
+}
+
+interface PropsTest {
+  children?: React.ReactNode;
+  data?: Array<string | DataUserTest>;
+}
+
+const Home: NextPage = ({ data }: PropsTest)  => {
   async function handleClick(lang: string) {
 
-    console.log(lang);
     await localStorage.setItem('i18nextLng', `${lang}`);
     return window.location = window.location;
   }
@@ -23,9 +32,10 @@ const Home: NextPage = () => {
     // <div className={styles.container}>
     <>
       <Head>
-        <title>Next Rocket</title>
+        <title>Home | Next Rocket</title>
         <meta name="description" content="Create by Jonatas Souza Soares" />
-        <link rel="icon" href="https://i.imgur.com/XG63jgi.png" />
+        <meta name="keywords" content={`${data?.map(e => `${e }`)}`}/>
+        <link rel="icon" href={"/next-rocket-logo.png" || "https://i.imgur.com/XG63jgi.png"} />
       </Head>
       
       <ButtonMovePage />
@@ -80,4 +90,23 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const data: Array<string | DataUserTest> = [
+    "Site",
+    "jonatas",
+    "Next Rocket",
+    "next rocket",
+    "next",
+    "rocket",
+    "criar site",
+    "criar sites",
+  ]
+  
+  return {
+    props: {
+      data
+    },
+  }
+}
+
+export default Home;
