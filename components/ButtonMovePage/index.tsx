@@ -7,7 +7,7 @@ export default function ButtonMovePage() {
   const [isActive, setIsActive] = useState('none');
 
   useEffect(function mont() {
-    function Scroll() {
+    function scroll() {
       if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         setIsActive("block");
       } else {
@@ -15,7 +15,7 @@ export default function ButtonMovePage() {
       }
     }
 
-    window.addEventListener("scroll", Scroll);
+    window.addEventListener("scroll", scroll);
   });
 
   function toTop() {
@@ -26,7 +26,7 @@ export default function ButtonMovePage() {
 
   return (
     <>
-      <button onClick={toTop} onLoad={Scroll} style={{
+      <button onClick={toTop} onLoad={scroll} style={{
         display: isActive
       }} className={styles.buttonToUp}>
         <span className="fa fa-rocket"></span>
