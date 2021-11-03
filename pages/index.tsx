@@ -5,12 +5,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 // import { Helmet } from 'react-helmet';
 
-import ButtonMovePage from '../components/ButtonMovePage/index';
 // import Services from '../components/Services/index';
 import { I18n } from '../translate/i18n';
 
 import styles from '../styles/Home.module.css';
-import Footer from '../components/Footer';
 
 interface DataUserTest {
   tag: string;
@@ -21,7 +19,7 @@ interface PropsTest {
   data?: Array<string | DataUserTest>;
 }
 
-const Home: NextPage = ({ data }: PropsTest)  => {
+const Home: NextPage = ({ data }: PropsTest) => {
   async function handleClick(lang: string) {
 
     await localStorage.setItem('i18nextLng', `${lang}`);
@@ -34,11 +32,9 @@ const Home: NextPage = ({ data }: PropsTest)  => {
       <Head>
         <title>Home | Next Rocket</title>
         <meta name="description" content="Create by Jonatas Souza Soares" />
-        <meta name="keywords" content={`${data?.map(e => `${e }`)}`}/>
+        <meta name="keywords" content={`${data?.map(e => `${e}`)}`} />
         <link rel="icon" href={"/next-rocket-logo.png" || "https://i.imgur.com/XG63jgi.png"} />
       </Head>
-      
-      <ButtonMovePage />
 
       <main className={styles.main}>
         <div className={styles.language}>
@@ -85,7 +81,6 @@ const Home: NextPage = ({ data }: PropsTest)  => {
           />
         </Link>
       </main>
-      <Footer />
     </>
   )
 }
@@ -101,7 +96,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     "criar site",
     "criar sites",
   ]
-  
+
   return {
     props: {
       data

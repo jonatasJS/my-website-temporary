@@ -16,6 +16,9 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0; */
   }
+  hrml {
+    scroll-behavior: smooth;
+  }
   body {
     color: ${({ theme }) => theme.colors.text};
     background: ${({ theme }) => theme.colors.background};

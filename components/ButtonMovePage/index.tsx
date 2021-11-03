@@ -19,8 +19,9 @@ export default function ButtonMovePage() {
   });
 
   function toTop() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth' });
+    // document.body.scrollTop = 0;
+    // document.documentElement.scrollTop = 0;
   }
 
   return (
@@ -28,8 +29,10 @@ export default function ButtonMovePage() {
       <button onClick={toTop} style={{
         display: isActive
       }} className={styles.buttonToUp}>
-        <span className="fa fa-arrow-up"></span>
+        <span className="fa fa-rocket"></span>
       </button>
     </>
   );
 }
+
+// fa-arrow-up

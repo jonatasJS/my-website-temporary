@@ -8,6 +8,8 @@ import Document, {
 } from 'next/document';
 import { ServerStyleSheet } from "styled-components";
 
+import Footer from "../components/Footer";
+
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();
@@ -59,8 +61,11 @@ class MyDocument extends Document {
         </Head>
         <body>
           <Main />
+          <Footer />
           <NextScript />
           <script async src="https://kit.fontawesome.com/3af35cbbff.js" crossOrigin="anonymous"></script>
+          <script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossOrigin="anonymous"></script>
+          
         </body>
       </Html>
     );

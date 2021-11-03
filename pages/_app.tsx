@@ -5,6 +5,8 @@ import { ThemeProvider } from '../contexts/ThemeContext';
 import '../styles/globals.css';
 import '../styles/global.ts';
 
+import ButtonMovePage from "../components/ButtonMovePage";
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider>
@@ -32,6 +34,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           });
         `}
       </Script>
+
+      <ButtonMovePage />
+
       <Component {...pageProps} />
     </ThemeProvider>
   )
