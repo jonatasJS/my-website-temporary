@@ -26,7 +26,7 @@ export default function ButtonMovePage() {
 
   return (
     <>
-      <button onClick={toTop} style={{
+      <button onClick={toTop} onLoad={onScroll} style={{
         display: isActive
       }} className={styles.buttonToUp}>
         <span className="fa fa-rocket"></span>
