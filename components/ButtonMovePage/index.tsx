@@ -26,7 +26,13 @@ export default function ButtonMovePage() {
 
   return (
     <>
-      <button onClick={toTop} onLoad={scroll} style={{
+      <button onClick={toTop} onLoad={() => {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        setIsActive("block");
+      } else {
+        setIsActive("none");
+      }
+    }} style={{
         display: isActive
       }} className={styles.buttonToUp}>
         <span className="fa fa-rocket"></span>
