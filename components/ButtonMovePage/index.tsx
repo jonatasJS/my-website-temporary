@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 import styles from '../../styles/Home.module.css';
+import { motion } from "framer-motion";
 
 export default function ButtonMovePage() {
   const [isActive, setIsActive] = useState('none');
@@ -26,11 +27,21 @@ export default function ButtonMovePage() {
 
   return (
     <>
-      <button onClick={toTop} style={{
+      <motion.button onClick={toTop} style={{
         display: isActive
-      }} className={styles.buttonToUp}>
+      }}
+      className={styles.buttonToUp}
+      // animate={{ y: 0 }}
+      // whileHover={{
+      //   zIndex: 999,
+      //   transform: [0, 0, -30, 0, -15, 0, 0],
+      //   transition: {
+      //     delay: .2
+      //   }
+      // }}
+      >
         <span className="fa fa-rocket"></span>
-      </button>
+      </motion.button>
     </>
   );
 }

@@ -1,26 +1,40 @@
 import type { AppProps } from 'next/app';
 import Script from 'next/script';
 import { ThemeProvider } from '../contexts/ThemeContext';
+import { motion } from 'framer-motion';
 
 import '../styles/globals.css';
 import '../styles/global.ts';
 
 import ButtonMovePage from "../components/ButtonMovePage";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps, router }: AppProps) {
   return (
-    <ThemeProvider>
-      <Script
-        async
-        strategy="lazyOnload"
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
-      />
+    <motion.div
+      key={router.route}
+      initial="pageInitial"
+      animate='pageAnimate'
+      variants={{
+        pageInitial: {
+          opacity: 0
+        },
+        pageAnimate: {
+          opacity: 1
+        }
+      }}
+    >
+      <ThemeProvider>
+        <Script
+          async
+          strategy="lazyOnload"
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+        />
 
-      <Script
-        id=""
-        strategy="lazyOnload"
-      >
-        {`
+        <Script
+          id=""
+          strategy="lazyOnload"
+        >
+          {`
           window.dataLayer = window.dataLayer || [];
 
           function gtag(){
@@ -33,12 +47,13 @@ function MyApp({ Component, pageProps }: AppProps) {
             page_path: window.location.pathname,
           });
         `}
-      </Script>
+        </Script>
 
-      <ButtonMovePage />
+        <ButtonMovePage />
 
-      <Component {...pageProps} />
-    </ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </motion.div>
   )
 }
 

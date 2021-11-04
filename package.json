@@ -19,6 +19,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "framer-motion": "^5.2.0",
     "i18next": "^21.3.2",
     "i18next-browser-languagedetector": "^6.1.2",
     "js-cookie": "^3.0.1",
@@ -35,9 +36,9 @@
     "@types/i18next-browser-languagedetector": "^3.0.0",
     "@types/js-cookie": "^3.0.0",
     "@types/react": "17.0.27",
-    "@types/styled-components": "^5.1.15",
     "@types/react-helmet": "^6.1.4",
     "@types/react-icons": "^3.0.0",
+    "@types/styled-components": "^5.1.15",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",
     "typescript": "4.4.3"

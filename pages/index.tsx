@@ -3,6 +3,7 @@ import type { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion } from "framer-motion"
 // import { Helmet } from 'react-helmet';
 
 // import Services from '../components/Services/index';
@@ -43,7 +44,6 @@ const Home: NextPage = ({ data }: PropsTest) => {
             <button onClick={() => handleClick('pt-BR')}>
               <Image
                 src={`https://flagicons.lipis.dev/flags/4x3/br.svg`}
-                alt="Picture of the author"
                 width={40}
                 height={40}
                 title="Português"
@@ -53,7 +53,6 @@ const Home: NextPage = ({ data }: PropsTest) => {
             <button onClick={() => handleClick('en-US')}>
               <Image
                 src={`https://flagicons.lipis.dev/flags/4x3/us.svg`}
-                alt="Picture of the author"
                 width={40}
                 height={40}
                 title="English"
@@ -73,7 +72,15 @@ const Home: NextPage = ({ data }: PropsTest) => {
         </h1>
 
         <Link href="https://discord.gg/D9SkzTZxrM">
-          <img
+          <motion.img
+            whileHover={{
+              position: "relative",
+              zIndex: 999,
+              scale: [ 1, 1.4, 1.2 ],
+              transition: {
+                delay: .2
+              }
+            }}
             className={styles.logo}
             // height="300rem"
             // width="300rem"
@@ -105,3 +112,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 }
 
 export default Home;
+
+
+// https://codepen.io/jh3y/pen/LYNZwGm?editors=1010
