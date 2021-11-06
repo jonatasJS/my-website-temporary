@@ -471,12 +471,12 @@
     transform: rotate(-45deg);
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 	/* color:  #5383d3; */
-	/* -webkit-animation-duration: 1s;
+	-webkit-animation-duration: 1s;
 	animation-duration: 1s;
 	-webkit-animation-fill-mode: both;
 	animation-fill-mode: both;
 	-webkit-animation-name: bounce;
-	animation-name: bounce; */
+	animation-name: bounce;
 }
 
 @-webkit-keyframes bounce {

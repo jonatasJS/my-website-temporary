@@ -21,11 +21,6 @@ interface PropsTest {
 }
 
 const Home: NextPage = ({ data }: PropsTest) => {
-  async function handleClick(lang: string) {
-
-    await localStorage.setItem('i18nextLng', `${lang}`);
-    return window.location = window.location;
-  }
 
   return (
     // <div className={styles.container}>
@@ -38,28 +33,6 @@ const Home: NextPage = ({ data }: PropsTest) => {
       </Head>
 
       <main className={styles.main}>
-        <div className={styles.language}>
-          <h1 className={styles.titleSmaller}>{I18n.t('language')}</h1>
-          <div className={styles.content}>
-            <button onClick={() => handleClick('pt-BR')}>
-              <Image
-                src={`https://flagicons.lipis.dev/flags/4x3/br.svg`}
-                width={40}
-                height={40}
-                title="Português"
-              />
-            </button>
-
-            <button onClick={() => handleClick('en-US')}>
-              <Image
-                src={`https://flagicons.lipis.dev/flags/4x3/us.svg`}
-                width={40}
-                height={40}
-                title="English"
-              />
-            </button>
-          </div>
-        </div>
 
         {/* <select value={selectedOption} onChange={handleSelect}>
           <option>{I18n.t('language')}</option>

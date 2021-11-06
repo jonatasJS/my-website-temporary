@@ -7,6 +7,8 @@ import '../styles/globals.css';
 import '../styles/global.ts';
 
 import ButtonMovePage from "../components/ButtonMovePage";
+import Navbar from '../components/Navbar';
+import ChangeLanguage from '../components/ChangeLanguage';
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (
@@ -48,7 +50,8 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           });
         `}
         </Script>
-
+        <Navbar />
+        {/* <ChangeLanguage /> */}
         <ButtonMovePage />
 
         <Component {...pageProps} />

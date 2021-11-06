@@ -1,0 +1,29 @@
+.lang {
+	font-family: 'Ubuntu', Arial, Helvetica, Verdana, sans-serif;
+	background: #333;
+	position: fixed;
+	right: 0;
+	top: 50px;
+	padding: 1em;
+}
+
+.lang span {
+	text-decoration: none;
+	color: rgba(255, 255, 255, .7)!important;
+}
+
+.lang ul {
+	margin: 0;
+	padding: 0;
+}
+
+.lang ul li {
+	list-style-type: none;
+	text-decoration: none;
+	font-size: 14px;
+	text-align: center;
+}
+
+.lang ul li span img {
+	font-size: 24px;
+}
