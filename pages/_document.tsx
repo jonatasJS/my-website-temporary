@@ -65,7 +65,7 @@ class MyDocument extends Document {
           <meta property="og:site_name" content="Next Rocket"></meta>
           <meta property="og:description" content="Venha criar um site pessoal ou para sua empresa com designs interativos."></meta>
           <meta property="og:image" content="jontas.app/og_image.png" />
-          <meta property="og:image:type" content="image/jpeg" />
+          <meta property="og:image:type" content="image/png" />
           <meta property="og:image:width" content="800"/>
           <meta property="og:image:height" content="600"/>
         </Head>
