@@ -27,7 +27,7 @@ const Home: NextPage = ({ data }: PropsTest) => {
     <>
       <Head>
         <title>Home | Next Rocket</title>
-        <meta name="description" content="Create by Jonatas Souza Soares" />
+        <meta name="description" content="Next Rocket - Crie seu site conosco" />
         <meta name="keywords" content={`${data?.map(e => `${e}`)}`} />
         <link rel="icon" href={"/next-rocket-logo.png" || "https://i.imgur.com/XG63jgi.png"} />
       </Head>
