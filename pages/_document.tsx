@@ -42,6 +42,8 @@ class MyDocument extends Document {
     return (
       <Html lang="pt-BR">
         <Head>
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4515639184646084"
+            crossOrigin="anonymous"></script>
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rajdhani:wght@600&display=swap"
@@ -66,8 +68,8 @@ class MyDocument extends Document {
           <meta property="og:description" content="Venha criar um site pessoal ou para sua empresa com designs interativos."></meta>
           <meta property="og:image" content="https://jonatas.app/og_image.png" />
           <meta property="og:image:type" content="image/png" />
-          <meta property="og:image:width" content="800"/>
-          <meta property="og:image:height" content="600"/>
+          <meta property="og:image:width" content="800" />
+          <meta property="og:image:height" content="600" />
         </Head>
         <body>
           {/* <Navbar /> */}

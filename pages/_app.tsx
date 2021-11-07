@@ -24,6 +24,14 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           opacity: 1
         }
       }}
+      // exit={{
+      //   pageInitial: {
+      //     opacity: 1
+      //   },
+      //   pageAnimate: {
+      //     opacity: 0
+      //   }
+      // }}
     >
       <ThemeProvider>
         <Script
