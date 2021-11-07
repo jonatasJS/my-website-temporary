@@ -62,7 +62,7 @@ const Home: NextPage = () => {
             <motion.img
               whileHover={{
                 position: "relative",
-                zIndex: 999,
+                zIndex: 9,
                 scale: [1, 1.4, 1.2],
                 transition: {
                   delay: .2
