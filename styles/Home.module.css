@@ -80,7 +80,6 @@
 	font-family: Ubuntu, Inter;
 	text-align: left;
 	padding: 50px 60px 40px;
-	margin-top: 80px;
 	overflow: hidden;
 }
 
@@ -510,3 +509,7 @@
 		flex-direction: column;
 	}
 }
+
+.adslot_1 { width: 320px; height: 100px; }
+@media (min-width:500px) { .adslot_1 { width: 468px; height: 60px; } }
+@media (min-width:800px) { .adslot_1 { width: 728px; height: 90px; } }

@@ -28,6 +28,14 @@ const Home: NextPage = () => {
     "criar sites",
   ]
 
+  const styleAd = {
+    background: "black",
+    width: "calc(100vw / 2)",
+    height: 100,
+    display: "flex",
+    margin: "1rem"
+  }
+
   return (
     // <div className={styles.container}>
     <>
@@ -39,7 +47,6 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-
         {/* <select value={selectedOption} onChange={handleSelect}>
           <option>{I18n.t('language')}</option>
           <option value="pt-BR">Português</option>
@@ -51,21 +58,34 @@ const Home: NextPage = () => {
         </h1>
 
         <Link href="https://discord.gg/D9SkzTZxrM">
-          <motion.img
-            whileHover={{
-              position: "relative",
-              zIndex: 999,
-              scale: [ 1, 1.4, 1.2 ],
-              transition: {
-                delay: .2
-              }
-            }}
-            className={styles.logo}
-            // height="300rem"
-            // width="300rem"
-            src="/next-rocket-logo.jpg"
-          />
+          <a target="_blank">
+            <motion.img
+              whileHover={{
+                position: "relative",
+                zIndex: 999,
+                scale: [1, 1.4, 1.2],
+                transition: {
+                  delay: .2
+                }
+              }}
+              className={styles.logo}
+              // height="300rem"
+              // width="300rem"
+              src="/next-rocket-logo.jpg"
+            />
+          </a>
         </Link>
+
+        <ins className="adsbygoogle adslot_1"
+          style={styleAd}
+          data-ad-client="ca-pub-4515639184646084"
+          data-ad-slot="1607096764"
+          data-adtest="on"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+        <script>
+          {'window.onload = function() { (adsbygoogle = window.adsbygoogle || []).push({}) }'}
+        </script>
       </main>
     </>
   )

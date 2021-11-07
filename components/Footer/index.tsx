@@ -5,6 +5,14 @@ import { I18n } from '../../translate/i18n';
 import styles from '../../styles/Home.module.css';
 
 export default function Footer() {
+  const styleAd = {
+    background: "black",
+    width: 200,
+    height: 200,
+    display: "flex",
+    // marginRight: "2rem",
+    marginLeft: "2rem"
+  }
 
   return (
     <>
@@ -21,18 +29,6 @@ export default function Footer() {
             <Link href="/about">{I18n.t('messages.aboutUs')}</Link>
           </p>
 
-          <div className={styles.footerRight}>
-            <p>{I18n.t('messages.txt')}</p>
-            <br />
-            <br />
-            <form onSubmit={e => e.preventDefault()} action="" method="post">
-              <input disabled style={{ cursor: "not-allowed" }} type="email" name="email" placeholder="E-mail" />
-              <textarea disabled style={{ cursor: "not-allowed" }} name="message" placeholder="Mensagem"></textarea>
-
-              <button disabled style={{ cursor: "not-allowed" }}>{I18n.t('buttons.send')}</button>
-            </form>
-          </div>
-
           <div className={styles.footerIcons}>
             <Link href="https://discord.gg/D9SkzTZxrM">
               <span className={styles.discord}>
@@ -45,8 +41,29 @@ export default function Footer() {
               </span>
             </Link>
           </div>
-          <p className={styles.footerCompanyName}>Copyright &copy; 2021-{new Date().getFullYear()} Next Rockt All Right Reserved</p>
+          <p className={styles.footerCompanyName}>Copyright &copy; 2020-{new Date().getFullYear()} Next Rockt All Right Reserved</p>
         </div>
+        <div className={styles.footerRight}>
+          <p>{I18n.t('messages.txt')}</p>
+          <br />
+          <br />
+          <form onSubmit={e => e.preventDefault()} action="" method="post">
+            <input disabled style={{ cursor: "not-allowed" }} type="email" name="email" placeholder="E-mail" />
+            <textarea disabled style={{ cursor: "not-allowed" }} name="message" placeholder="Mensagem"></textarea>
+
+            <button disabled style={{ cursor: "not-allowed" }}>{I18n.t('buttons.send')}</button>
+          </form>
+        </div>
+        {/* <div
+          style={styleAd}
+        >
+          <ins className="adsbygoogle"
+            data-ad-client="ca-pub-4515639184646084"
+            data-ad-slot="8052429076"
+            data-ad-format="auto"
+            data-adtest="on"
+            data-full-width-responsive="true"></ins>
+        </div> */}
       </footer>
     </>
   );
