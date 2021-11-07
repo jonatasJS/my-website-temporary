@@ -29,7 +29,7 @@ const Home: NextPage = () => {
   ]
 
   const styleAd = {
-    background: "black",
+    // background: "black",
     width: "calc(100vw / 2)",
     height: 100,
     display: "flex",
