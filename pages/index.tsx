@@ -15,12 +15,18 @@ interface DataUserTest {
   tag: string;
 }
 
-interface PropsTest {
-  children?: React.ReactNode;
-  data?: Array<string | DataUserTest>;
-}
+const Home: NextPage = () => {
 
-const Home: NextPage = ({ data }: PropsTest) => {
+  const data: Array<string | DataUserTest> = [
+    "Site",
+    "jonatas",
+    "Next Rocket",
+    "next rocket",
+    "next",
+    "rocket",
+    "criar site",
+    "criar sites",
+  ]
 
   return (
     // <div className={styles.container}>
@@ -63,25 +69,6 @@ const Home: NextPage = ({ data }: PropsTest) => {
       </main>
     </>
   )
-}
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const data: Array<string | DataUserTest> = [
-    "Site",
-    "jonatas",
-    "Next Rocket",
-    "next rocket",
-    "next",
-    "rocket",
-    "criar site",
-    "criar sites",
-  ]
-
-  return {
-    props: {
-      data
-    },
-  }
 }
 
 export default Home;

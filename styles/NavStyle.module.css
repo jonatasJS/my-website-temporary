@@ -5,6 +5,9 @@
 	justify-content: space-between;
 	padding: .5rem calc((100vw - 1000px) / 2);
 	z-index: 10;
+	width: 100vw;
+	position: fixed;
+	margin-bottom: 2rem;
 }
 
 .nav a  {
