@@ -43,7 +43,6 @@ const Home: NextPage = () => {
         <title>Home | Next Rocket</title>
         <meta name="description" content="Next Rocket - Crie seu site conosco" />
         <meta name="keywords" content={`${data?.map(e => `${e}`)}`} />
-        <link rel="icon" href={"/next-rocket-logo.png" || "https://i.imgur.com/XG63jgi.png"} />
       </Head>
 
       <main className={styles.main}>
@@ -62,7 +61,7 @@ const Home: NextPage = () => {
             <motion.img
               whileHover={{
                 position: "relative",
-                zIndex: 9,
+                zIndex: 8,
                 scale: [1, 1.4, 1.2],
                 transition: {
                   delay: .2

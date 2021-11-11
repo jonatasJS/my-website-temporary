@@ -29,7 +29,9 @@
     "react-dom": "17.0.2",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
+    "react-perfect-scrollbar": "^1.5.8",
     "react-router-dom": "^6.0.0",
+    "react-toastify": "^8.1.0",
     "sass": "^1.43.4",
     "storage-manager-js": "^4.0.7",
     "styled-components": "^5.3.1"

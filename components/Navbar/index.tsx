@@ -2,30 +2,52 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import { FaBars as BarsIcon } from 'react-icons/fa';
+import { MdOutlineNightlight as MoonIcon, MdOutlineLightMode as SunIcon } from 'react-icons/md';
 
+import { useTheme } from '../../contexts/ThemeContext';
 import { I18n } from '../../translate/i18n';
-import style from '../../styles/NavStyle.module.css'
+import style from '../../styles/NavStyle.module.css';
 
 export default function Navbar() {
-	const [pathname, setPathname] = useState(String)
+	const [pathname, setPathname] = useState(String);
+	const [limited, setLimited] = useState(String);
+	const { changeTheme, theme, lock } = useTheme();
 	const path = Router;
 
 	useEffect(() => {
+		if (localStorage.getItem('theme') == '' || localStorage.getItem('theme') == null) localStorage.setItem('theme', 'light');
 		const route = path.asPath;
 
 		setPathname(route)
 	}, []);
 
+	useEffect(function mont() {
+    function onScroll() {
+			const footer = document.querySelector('footer')
+			const total: number = footer?.offsetHeight + 40 + 80
+			
+      if (document.body.scrollHeight == total || document.documentElement.scrollHeight == total) {
+				setLimited("absolute");
+			} else {
+				setLimited("fixed");
+      }
+    }
+
+    window.addEventListener("scroll", onScroll);
+  });
+
 	return (
 		<>
-			<nav className={style.nav}>
+			<nav className={style.nav} style={{ position: limited }}>
 				<Link href="/">
-					<h1 className={style.title}>Next Rocket</h1>
+					<a>
+						<h1 className={style.title}>Next Rocket</h1>
+					</a>
 				</Link>
 				<BarsIcon className={style.bars} />
 				<div className={style.navMenu}>
 					<Link href="/">
-						{pathname  == '/' ? (
+						{pathname == '/' ? (
 							<a className={style.active}>
 								{I18n.t('messages.home')}
 							</a>
@@ -36,7 +58,7 @@ export default function Navbar() {
 						)}
 					</Link>
 					<Link href="/contact">
-						{pathname  == '/contact' ? (
+						{pathname == '/contact' ? (
 							<a className={style.active}>
 								{I18n.t('messages.contact')}
 							</a>
@@ -47,7 +69,7 @@ export default function Navbar() {
 						)}
 					</Link>
 					<Link href="/about">
-						{pathname  == '/about' ? (
+						{pathname == '/about' ? (
 							<a className={style.active}>
 								{I18n.t('messages.aboutUs')}
 							</a>
@@ -64,6 +86,24 @@ export default function Navbar() {
 				<nav className={style.navBtn}>
 					<Link href="/signin"><a className={style.navBtnLink}>Sign In</a></Link>
 				</nav>
+				<div className={style.toogleTheme}>
+					{theme == 'dark' ?
+						<MoonIcon
+							className={style.moonIcon}
+							title={`Toogle theme to ${theme == 'dark' && 'light'}`}
+							width="10"
+							height="10"
+							onClick={changeTheme}
+						/>
+						:
+						<SunIcon
+							className={style.sunIcon}
+							title={`Toogle theme to ${theme == 'light' && 'dark'}`}
+							width="10"
+							height="10"
+							onClick={changeTheme}
+						/>}
+				</div>
 			</nav>
 		</>
 	);

@@ -1,39 +1,41 @@
-import type { AppProps } from 'next/app';
+import React from 'react';
+import Head from 'next/head';
 import Script from 'next/script';
+import type { AppProps } from 'next/app';
 import { ThemeProvider } from '../contexts/ThemeContext';
 import { motion } from 'framer-motion';
 
 import '../styles/globals.css';
 import '../styles/global.ts';
+import 'react-perfect-scrollbar/dist/css/styles.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 import ButtonMovePage from "../components/ButtonMovePage";
-import Navbar from '../components/Navbar';
-import ChangeLanguage from '../components/ChangeLanguage';
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (
-    <motion.div
-      key={router.route}
-      initial="pageInitial"
-      animate='pageAnimate'
-      variants={{
-        pageInitial: {
-          opacity: 0
-        },
-        pageAnimate: {
-          opacity: 1
-        }
+    <ThemeProvider>
+      <Head>
+        <link rel="icon" href={"/next-rocket-logo.png" || "https://i.imgur.com/XG63jgi.png"} />
+      </Head>
+      <motion.div
+        key={router.route}
+        initial="pageInitial"
+        animate='pageAnimate'
+        variants={{
+          pageInitial: {
+            opacity: 0
+          },
+          pageAnimate: {
+            opacity: 1
+          }
+        }}
+      exit={{
+        opacity: 0
       }}
-      // exit={{
-      //   pageInitial: {
-      //     opacity: 1
-      //   },
-      //   pageAnimate: {
-      //     opacity: 0
-      //   }
-      // }}
-    >
-      <ThemeProvider>
+      >
         <Script
           async
           strategy="lazyOnload"
@@ -63,8 +65,10 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         <ButtonMovePage />
 
         <Component {...pageProps} />
-      </ThemeProvider>
-    </motion.div>
+
+        <Footer />
+      </motion.div>
+    </ThemeProvider>
   )
 }
 

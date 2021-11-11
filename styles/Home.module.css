@@ -72,7 +72,7 @@
 }
 
 .footerDistributed {
-	background-color: #292c2f;
+	background-color: #000;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	width: 100%;
@@ -100,7 +100,7 @@
 }
 
 .footerDistributed h3 span {
-	color: #5383d3;
+	color: #15cdfc;
 }
 
 /* Footer links */
@@ -134,7 +134,7 @@
 	justify-content: space-between;
 }
 
-.footerIcons span {
+.footerIcons a {
 	display: inline-block;
 	width: 35px;
 	height: 35px;
@@ -279,7 +279,7 @@
 }
 
 .title a {
-	color: #5383d3;
+	color: #15cdfc;
 	text-decoration: none;
 }
 

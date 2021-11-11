@@ -1,24 +1,17 @@
-import React, { useCallback, useState } from 'react';
-import Link from "next/link";
-import { I18n } from '../../translate/i18n';
+import { useCallback, useState } from 'react';
+import Head from 'next/head';
 import { ToastContainer, toast } from 'react-toastify';
 
-import styles from '../../styles/Home.module.css';
+import {
+  Container,
+  Form,
+} from '../../styles/contactStyle';
 
-export default function Footer() {
-  const styleAd = {
-    // background: "black",
-    width: 550,
-    height: 250,
-    display: "flex",
-    // marginRight: "2rem",
-    marginLeft: "2rem"
-  }
-
+export default function Contato(): JSX.Element {
   const [loading, setLoading] = useState(0);
 
-  const onHandleSubmit = useCallback((e) => {
-    e.preventDefault();
+  const onHandleSubmit = useCallback((event) => {
+    event.preventDefault();
 
     const inputs = document.getElementsByTagName('input');
     const description = document.getElementsByTagName('textarea')[0].value;
@@ -122,55 +115,67 @@ export default function Footer() {
 
   return (
     <>
-      <footer id="footer" className={styles.footerDistributed}>
-        <div className={styles.footerLeft}>
-          <Link href="/">
-            <h3>Next <span>Rocket</span></h3>
-          </Link>
-          <p className={styles.footerLinks}>
-            <Link href="/">{I18n.t('messages.home')}</Link>
-            <br />
-            <Link href="/contact">{I18n.t('messages.contact')}</Link>
-            <br />
-            <Link href="/about">{I18n.t('messages.aboutUs')}</Link>
-          </p>
-
-          <div className={styles.footerIcons}>
-            <Link href="https://discord.gg/D9SkzTZxrM">
-              <a className={styles.discord}>
-                <i aria-hidden className="fab fa-discord"></i>
-              </a>
-            </Link>
-            <Link href="https://wa.me/message/IPZCPPTT5J5UH1">
-              <a className={styles.whatsapp}>
-                <i aria-hidden className="fab fa-whatsapp"></i>
-              </a>
-            </Link>
-          </div>
-          <p className={styles.footerCompanyName}>Copyright &copy; 2020-{new Date().getFullYear()} Next Rockt All Right Reserved</p>
-        </div>
-        <div className={styles.footerRight}>
-          {/* <p>{I18n.t('messages.txt')}</p>
+      <Head>
+        <title>Contato | Next Rocket</title>
+        <meta name="og:title" property="og:title" content="Entre em contato" />
+      </Head>
+      <Container>
+        {/* <Contact>
+          <img
+            src="https://github.com/jonatasJS.png"
+            alt="Foto de perfil Daniel Bergholz"
+          />
+          <SocialMedia>
+            <CopyToClipBoard>
+              <GrMail size={30} />
+              <p id="clipboard">bergholz.daniel@gmail.com</p>
+            </CopyToClipBoard>
+            <a
+              href="https://www.linkedin.com/in/daniel-gobbi-bergholz-752379149"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin size={30} />
+              <p>Daniel Gobbi Bergholz</p>
+            </a>
+            <a
+              href="https://www.github.com/danielbergholz"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub size={30} />
+              <p>danielbergholz</p>
+            </a>
+            <a
+              href="https://www.youtube.com/channel/UCnmbV9eyMwIl50Ji1ObFxqg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaYoutube size={30} />
+              <p>Daniel Berg</p>
+            </a>
+            <a
+              href="https://www.instagram.com/berg.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram size={30} />
+              <p>@berg.dev</p>
+            </a>
+          </SocialMedia>
+        </Contact> */}
+        <Form onSubmit={onHandleSubmit} loading={loading}>
+          <h1>Entre em contato</h1>
+          <input type="text" name="name" placeholder="Nome" />
           <br />
+          <input type="email" name="email" placeholder="E-mail" />
           <br />
-          <form onSubmit={e => {e.preventDefault();onHandleSubmit(e)}}>
-            <input type="text" name="name" placeholder="Seu Nome" />
-            <input type="email" name="email" placeholder="E-mail" />
-            <textarea cols={120} name="message" placeholder="Mensagem"></textarea>
-
-            <button type="submit">{I18n.t('buttons.send')}</button>
-          </form> */}
-          <div
-            style={styleAd}
-          >
-            <ins className="adsbygoogle"
-              data-ad-client="ca-pub-4515639184646084"
-              data-ad-slot="8052429076"
-              data-ad-format="auto"
-              data-adtest="on"
-              data-full-width-responsive="true"></ins>
-          </div>
-        </div>
+          <input type="text" name="subject" placeholder="Assunto" />
+          <br />
+          <textarea name="description" placeholder="Descrição" cols={120} />
+          <br />
+          <button type="submit">enviar</button>
+        </Form>
         <ToastContainer
           position="top-right"
           autoClose={4000}
@@ -182,7 +187,7 @@ export default function Footer() {
           draggable
           pauseOnHover
         />
-      </footer>
+      </Container>
     </>
   );
 }
