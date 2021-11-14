@@ -21,24 +21,24 @@ export default function Navbar() {
 		setPathname(route)
 	}, []);
 
-	useEffect(function mont() {
-    function onScroll() {
-			const footer = document.querySelector('footer')
-			const total: number = footer?.offsetHeight + 40 + 80
+	// useEffect(function mont() {
+  //   function onScroll() {
+	// 		const footer = document.querySelector('footer')
+	// 		const total: number = footer?.offsetHeight + 40 + 80
 			
-      if (document.body.scrollHeight == total || document.documentElement.scrollHeight == total) {
-				setLimited("absolute");
-			} else {
-				setLimited("fixed");
-      }
-    }
+  //     if (document.body.scrollHeight == total || document.documentElement.scrollHeight == total) {
+	// 			setLimited("absolute");
+	// 		} else {
+	// 			setLimited("fixed");
+  //     }
+  //   }
 
-    window.addEventListener("scroll", onScroll);
-  });
+  //   window.addEventListener("scroll", onScroll);
+  // });
 
 	return (
 		<>
-			<nav className={style.nav} style={{ position: limited }}>
+			<nav className={style.nav}>
 				<Link href="/">
 					<a>
 						<h1 className={style.title}>Next Rocket</h1>
