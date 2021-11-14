@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useRef } from 'react';
 import Head from 'next/head';
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -15,6 +15,8 @@ export default function Contato(): JSX.Element {
   const [db_email, setDB_Email] = useState('');
   const [db_subject, setDB_Subject] = useState('');
   const [db_description, setDB_Description] = useState('');
+
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const onHandleSubmit = useCallback((event) => {
     event.preventDefault();
@@ -95,6 +97,7 @@ export default function Contato(): JSX.Element {
             progress: undefined,
             bodyStyle: { fontFamily: 'Source Sans Pro, Ubuntu', fontSize: 20 },
           });
+          audioRef?.current.play();
         } else {
           toast.error('😓 Erro ao enviar o e-mail', {
             position: 'top-right',
@@ -192,6 +195,7 @@ export default function Contato(): JSX.Element {
           draggable
           pauseOnHover
         />
+        <audio src="/audio/send.mp3" ref={audioRef}></audio>
       </Container>
     </>
   );
