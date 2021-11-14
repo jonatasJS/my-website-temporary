@@ -2,6 +2,8 @@ import { useCallback, useState } from 'react';
 import Head from 'next/head';
 import { ToastContainer, toast } from 'react-toastify';
 
+import { db, firebaseConfig } from '../../services/firebase';
+
 import {
   Container,
   Form,
@@ -9,9 +11,26 @@ import {
 
 export default function Contato(): JSX.Element {
   const [loading, setLoading] = useState(0);
+  const [db_name, setDB_Name] = useState('');
+  const [db_email, setDB_Email] = useState('');
+  const [db_subject, setDB_Subject] = useState('');
+  const [db_description, setDB_Description] = useState('');
 
   const onHandleSubmit = useCallback((event) => {
     event.preventDefault();
+
+    /* db?.app?.firestore(firebaseConfig).collection('contacts').add({
+    //   name: db_name,
+    //   email: db_email,
+    //   subject: db_subject,
+    //   description: db_description,
+    //   date: new Date(),
+    // })
+    // .then(() => {
+    //   setLoading(1);
+    //   toast.success('Mensagem enviada com sucesso!');
+    // })
+    // .catch(error => console.log(error));*/
 
     const inputs = document.getElementsByTagName('input');
     const description = document.getElementsByTagName('textarea')[0].value;
@@ -111,6 +130,10 @@ export default function Contato(): JSX.Element {
 
         setLoading(0);
       });
+      setDB_Name('');
+      setDB_Email('');
+      setDB_Subject('');
+      setDB_Description('');
   }, []);
 
   return (
@@ -120,61 +143,43 @@ export default function Contato(): JSX.Element {
         <meta name="og:title" property="og:title" content="Entre em contato" />
       </Head>
       <Container>
-        {/* <Contact>
-          <img
-            src="https://github.com/jonatasJS.png"
-            alt="Foto de perfil Daniel Bergholz"
-          />
-          <SocialMedia>
-            <CopyToClipBoard>
-              <GrMail size={30} />
-              <p id="clipboard">bergholz.daniel@gmail.com</p>
-            </CopyToClipBoard>
-            <a
-              href="https://www.linkedin.com/in/daniel-gobbi-bergholz-752379149"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaLinkedin size={30} />
-              <p>Daniel Gobbi Bergholz</p>
-            </a>
-            <a
-              href="https://www.github.com/danielbergholz"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGithub size={30} />
-              <p>danielbergholz</p>
-            </a>
-            <a
-              href="https://www.youtube.com/channel/UCnmbV9eyMwIl50Ji1ObFxqg"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaYoutube size={30} />
-              <p>Daniel Berg</p>
-            </a>
-            <a
-              href="https://www.instagram.com/berg.dev/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaInstagram size={30} />
-              <p>@berg.dev</p>
-            </a>
-          </SocialMedia>
-        </Contact> */}
         <Form onSubmit={onHandleSubmit} loading={loading}>
           <h1>Entre em contato</h1>
-          <input type="text" name="name" placeholder="Nome" />
+          <input
+            type="text"
+            name="name"
+            placeholder="Nome"
+            value={db_name}
+            onChange={(e) => setDB_Name(e.target.value)}
+          />
           <br />
-          <input type="email" name="email" placeholder="E-mail" />
+          <input
+            type="email"
+            name="email"
+            placeholder="E-mail"
+            value={db_email}
+            onChange={(e) => setDB_Email(e.target.value)}
+          />
           <br />
-          <input type="text" name="subject" placeholder="Assunto" />
+          <input
+            type="text"
+            name="subject"
+            placeholder="Assunto"
+            value={db_subject}
+            onChange={(e) => setDB_Subject(e.target.value)}
+          />
           <br />
-          <textarea name="description" placeholder="Descrição" cols={120} />
+          <textarea
+            name="description"
+            placeholder="Descrição"
+            value={db_description}
+            onChange={(e) => setDB_Description(e.target.value)}
+            cols={120}
+          />
           <br />
-          <button type="submit">enviar</button>
+          <button
+            type="submit"
+          >enviar</button>
         </Form>
         <ToastContainer
           position="top-right"
