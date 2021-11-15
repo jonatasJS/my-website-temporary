@@ -10,7 +10,7 @@ import {
 export default function Contato(): JSX.Element {
   const [loading, setLoading] = useState(0);
   
-  const audioRef = new Audio('../../public/audios/send.mp3');
+  const audioRef = new Audio('/audios/send.mp3');
 
   const onHandleSubmit = useCallback((event) => {
     event.preventDefault();
