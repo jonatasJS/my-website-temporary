@@ -179,7 +179,7 @@ export default function Contato(): JSX.Element {
       ></audio>
       <script>
         {`
-        const audio = document.getElementById('audio');
+        const audio = document.getElementById("audio");
         console.log(audio);
         console.log(audio.volume);
         audio.volume = 0.2;
