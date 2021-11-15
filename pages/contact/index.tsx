@@ -11,13 +11,7 @@ export default function Contato(): JSX.Element {
   const [loading, setLoading] = useState(0);
   const [playAudio, setPlayAudio] = useState('');
 
-  const scriptVol = `
-    const audio = document.getElementById("audio");
-    console.log(audio);
-    console.log(audio.volume);
-    audio.volume = 0.2;
-    console.log(audio.volume);
-  `
+  const scriptVol = 'const audio=document.getElementById("audio");console.log(audio);console.log(audio.volume);audio.volume = 0.2;console.log(audio.volume);'
 
   const onHandleSubmit = useCallback((event) => {
     event.preventDefault();
