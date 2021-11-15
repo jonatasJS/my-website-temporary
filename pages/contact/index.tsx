@@ -1,8 +1,6 @@
-import { useCallback, useState, useRef, useEffect } from 'react';
+import { useCallback, useState } from 'react';
 import Head from 'next/head';
 import { ToastContainer, toast } from 'react-toastify';
-
-import { db, firebaseConfig } from '../../services/firebase';
 
 import {
   Container,
@@ -11,28 +9,11 @@ import {
 
 export default function Contato(): JSX.Element {
   const [loading, setLoading] = useState(0);
-  const [db_name, setDB_Name] = useState('');
-  const [db_email, setDB_Email] = useState('');
-  const [db_subject, setDB_Subject] = useState('');
-  const [db_description, setDB_Description] = useState('');
   
   const audioRef = new Audio('../../public/audios/send.mp3');
 
   const onHandleSubmit = useCallback((event) => {
     event.preventDefault();
-
-    /* db?.app?.firestore(firebaseConfig).collection('contacts').add({
-    //   name: db_name,
-    //   email: db_email,
-    //   subject: db_subject,
-    //   description: db_description,
-    //   date: new Date(),
-    // })
-    // .then(() => {
-    //   setLoading(1);
-    //   toast.success('Mensagem enviada com sucesso!');
-    // })
-    // .catch(error => console.log(error));*/
 
     const inputs = document.getElementsByTagName('input');
     const description = document.getElementsByTagName('textarea')[0].value;
@@ -133,10 +114,6 @@ export default function Contato(): JSX.Element {
 
         setLoading(0);
       });
-      setDB_Name('');
-      setDB_Email('');
-      setDB_Subject('');
-      setDB_Description('');
   }, []);
 
   return (
@@ -152,31 +129,23 @@ export default function Contato(): JSX.Element {
             type="text"
             name="name"
             placeholder="Nome"
-            value={db_name}
-            onChange={(e) => setDB_Name(e.target.value)}
           />
           <br />
           <input
             type="email"
             name="email"
             placeholder="E-mail"
-            value={db_email}
-            onChange={(e) => setDB_Email(e.target.value)}
           />
           <br />
           <input
             type="text"
             name="subject"
             placeholder="Assunto"
-            value={db_subject}
-            onChange={(e) => setDB_Subject(e.target.value)}
           />
           <br />
           <textarea
             name="description"
             placeholder="Descrição"
-            value={db_description}
-            onChange={(e) => setDB_Description(e.target.value)}
             cols={120}
           />
           <br />
@@ -195,7 +164,6 @@ export default function Contato(): JSX.Element {
           draggable
           pauseOnHover
         />
-        {/* <audio src="/audio/send.mp3" ref={audioRef}></audio> */}
       </Container>
     </>
   );
