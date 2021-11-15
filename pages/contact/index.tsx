@@ -1,6 +1,7 @@
-import { useCallback, useState, useRef } from 'react';
+import { useCallback, useState, useRef, useEffect } from 'react';
 import Head from 'next/head';
 import { ToastContainer, toast } from 'react-toastify';
+import { GetStaticProps } from 'next';
 
 import { db, firebaseConfig } from '../../services/firebase';
 
@@ -9,14 +10,26 @@ import {
   Form,
 } from '../../styles/contactStyle';
 
-export default function Contato(): JSX.Element {
+interface Props {
+  DOC: Document;
+}
+
+export default function Contato({ DOC }: Props): JSX.Element {
   const [loading, setLoading] = useState(0);
+  const [_document, set_document] = useState(new Document);
+  const [send, setSend] = useState(false);
   const [db_name, setDB_Name] = useState('');
   const [db_email, setDB_Email] = useState('');
   const [db_subject, setDB_Subject] = useState('');
   const [db_description, setDB_Description] = useState('');
 
-  const audioRef = useRef<HTMLAudioElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(DOC.createElement("audio"));
+
+  useEffect(() => {
+    set_document(DOC);
+    audioRef?.current.play();
+    setSend(false);
+  }, [send]);
 
   const onHandleSubmit = useCallback((event) => {
     event.preventDefault();
@@ -34,8 +47,8 @@ export default function Contato(): JSX.Element {
     // })
     // .catch(error => console.log(error));*/
 
-    const inputs = document.getElementsByTagName('input');
-    const description = document.getElementsByTagName('textarea')[0].value;
+    const inputs = DOC.getElementsByTagName('input');
+    const description = DOC.getElementsByTagName('textarea')[0].value;
 
     const formData = {
       name: inputs[0].value,
@@ -97,7 +110,7 @@ export default function Contato(): JSX.Element {
             progress: undefined,
             bodyStyle: { fontFamily: 'Source Sans Pro, Ubuntu', fontSize: 20 },
           });
-          audioRef?.current.play();
+          setSend(true);
         } else {
           toast.error('😓 Erro ao enviar o e-mail', {
             position: 'top-right',
@@ -115,7 +128,7 @@ export default function Contato(): JSX.Element {
           inputs[i].value = '';
         }
 
-        document.getElementsByTagName('textarea')[0].value = '';
+        DOC.getElementsByTagName('textarea')[0].value = '';
 
         setLoading(0);
       })
@@ -133,10 +146,10 @@ export default function Contato(): JSX.Element {
 
         setLoading(0);
       });
-      setDB_Name('');
-      setDB_Email('');
-      setDB_Subject('');
-      setDB_Description('');
+    setDB_Name('');
+    setDB_Email('');
+    setDB_Subject('');
+    setDB_Description('');
   }, []);
 
   return (
@@ -200,3 +213,11 @@ export default function Contato(): JSX.Element {
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  return {
+    props: {
+      DOC: document,
+    },
+  };
+};
