@@ -9,7 +9,7 @@ import {
 
 export default function Contato(): JSX.Element {
   const [loading, setLoading] = useState(0);
-  const [playAudio, setPlayAudio] = useState(false);
+  const [playAudio, setPlayAudio] = useState('');
 
   const onHandleSubmit = useCallback((event) => {
     event.preventDefault();
@@ -44,7 +44,8 @@ export default function Contato(): JSX.Element {
           color: '#272727',
         },
       });
-      return;
+      setPlayAudio('error');
+      return setTimeout(() => setPlayAudio(''), 4000);
     }
 
     toast.info('📤 Enviando e-mail...', {
@@ -77,8 +78,8 @@ export default function Contato(): JSX.Element {
             progress: undefined,
             bodyStyle: { fontFamily: 'Source Sans Pro, Ubuntu', fontSize: 20 },
           });
-          setPlayAudio(true);
-          setTimeout(() => setPlayAudio(false), 4000);
+          setPlayAudio('send');
+          setTimeout(() => setPlayAudio(''), 4000);
         } else {
           toast.error('😓 Erro ao enviar o e-mail', {
             position: 'top-right',
@@ -90,6 +91,8 @@ export default function Contato(): JSX.Element {
             progress: undefined,
             bodyStyle: { fontFamily: 'Source Sans Pro, Ubuntu', fontSize: 20 },
           });
+          setPlayAudio('error');
+          setTimeout(() => setPlayAudio(''), 4000);
         }
 
         for (let i = 0; i < 3; i += 1) {
@@ -111,7 +114,8 @@ export default function Contato(): JSX.Element {
           progress: undefined,
           bodyStyle: { fontFamily: 'Source Sans Pro, Ubuntu', fontSize: 20 },
         });
-
+        setPlayAudio('error');
+        setTimeout(() => setPlayAudio(''), 4000);
         setLoading(0);
       });
   }, []);
@@ -166,10 +170,9 @@ export default function Contato(): JSX.Element {
         />
       </Container>
       <audio
-        src={playAudio ? '/audio/send.mp3' : ''}
+        src={playAudio != '' ? `/audio/${playAudio}.mp3` : ''}
         style={{
-          opacity: 0,
-          display: playAudio ? 'block' : 'none',
+          opacity: 0
         }}
         autoPlay
       ></audio>
