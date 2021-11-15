@@ -15,8 +15,8 @@ export default function Contato(): JSX.Element {
   const [db_email, setDB_Email] = useState('');
   const [db_subject, setDB_Subject] = useState('');
   const [db_description, setDB_Description] = useState('');
-
-  const audioRef = useRef<HTMLAudioElement>(new HTMLAudioElement);
+  
+  const audioRef = useRef<HTMLAudioElement>(new Document().createElement('audio'));
 
   const onHandleSubmit = useCallback((event) => {
     event.preventDefault();
