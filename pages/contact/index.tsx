@@ -170,12 +170,22 @@ export default function Contato(): JSX.Element {
         />
       </Container>
       <audio
+        id="audio"
         src={playAudio != '' ? `/audio/${playAudio}.mp3` : ''}
         style={{
           opacity: 0
         }}
         autoPlay
       ></audio>
+      <script>
+        {`
+        const audio = document.getElementById('audio');
+        console.log(audio);
+        console.log(audio.volume);
+        audio.volume = 0.2;
+        console.log(audio.volume);
+        `}
+      </script>
     </>
   );
 }
