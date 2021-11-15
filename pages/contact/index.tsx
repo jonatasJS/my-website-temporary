@@ -16,7 +16,7 @@ export default function Contato(): JSX.Element {
   const [db_subject, setDB_Subject] = useState('');
   const [db_description, setDB_Description] = useState('');
   
-  const audioRef = useRef<HTMLAudioElement>(new Document().createElement('audio'));
+  const audioRef = new Audio('/audios/send.mp3');
 
   const onHandleSubmit = useCallback((event) => {
     event.preventDefault();
@@ -97,9 +97,7 @@ export default function Contato(): JSX.Element {
             progress: undefined,
             bodyStyle: { fontFamily: 'Source Sans Pro, Ubuntu', fontSize: 20 },
           });
-          if(!audioRef.current == null) {
-            audioRef.current.play();
-          }
+          audioRef.play();
         } else {
           toast.error('😓 Erro ao enviar o e-mail', {
             position: 'top-right',
@@ -197,7 +195,7 @@ export default function Contato(): JSX.Element {
           draggable
           pauseOnHover
         />
-        <audio src="/audio/send.mp3" ref={audioRef}></audio>
+        {/* <audio src="/audio/send.mp3" ref={audioRef}></audio> */}
       </Container>
     </>
   );
