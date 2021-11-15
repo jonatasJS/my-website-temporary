@@ -9,8 +9,7 @@ import {
 
 export default function Contato(): JSX.Element {
   const [loading, setLoading] = useState(0);
-  
-  const audioRef = new Audio('/audios/send.mp3');
+  const [playAudio, setPlayAudio] = useState(false);
 
   const onHandleSubmit = useCallback((event) => {
     event.preventDefault();
@@ -78,7 +77,8 @@ export default function Contato(): JSX.Element {
             progress: undefined,
             bodyStyle: { fontFamily: 'Source Sans Pro, Ubuntu', fontSize: 20 },
           });
-          audioRef.play();
+          setPlayAudio(true);
+          setTimeout(() => setPlayAudio(false), 4000);
         } else {
           toast.error('😓 Erro ao enviar o e-mail', {
             position: 'top-right',
@@ -165,6 +165,14 @@ export default function Contato(): JSX.Element {
           pauseOnHover
         />
       </Container>
+      <audio
+        src={playAudio ? '/audio/send.mp3' : ''}
+        style={{
+          opacity: 0,
+          display: playAudio ? 'block' : 'none',
+        }}
+        autoPlay
+      ></audio>
     </>
   );
 }
