@@ -99,8 +99,19 @@
 	cursor: pointer;
 }
 
+.footerDistributed h3:hover {
+	text-shadow: 0 0 10px #fff;
+}
+
 .footerDistributed h3 span {
+	color: #256ce1;
+	transition: all .1s ease-in-out;
+}
+
+.footerDistributed h3:hover span {
 	color: #15cdfc;
+	text-shadow: 0 0 10px #15cdfc;
+	transition: all .1s ease-in-out;
 }
 
 /* Footer links */
@@ -279,11 +290,15 @@
 }
 
 .title a {
-	color: #15cdfc;
+	color: #256ce1;
+	transition: all .1s ease-in-out;
 	text-decoration: none;
 }
 
 .title a:hover, .title a:focus, .title a:active {
+	color: #15cdfc;
+	transition: all .1s ease-in-out;
+	text-shadow: 0 0 10px #15cdfc;
 	text-decoration: underline;
 }
 

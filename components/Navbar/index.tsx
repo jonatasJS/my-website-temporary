@@ -40,8 +40,8 @@ export default function Navbar() {
 		<>
 			<nav className={style.nav}>
 				<Link href="/">
-					<a>
-						<h1 className={style.title}>Next Rocket</h1>
+					<a className={style.title}>
+						<h1>Next <span>Rocket</span></h1>
 					</a>
 				</Link>
 				<BarsIcon className={style.bars} />

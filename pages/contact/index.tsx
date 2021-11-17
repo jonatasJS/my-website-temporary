@@ -157,7 +157,7 @@ export default function Contato(): JSX.Element {
           <br />
           <button
             type="submit"
-          >enviar</button>
+          >Enviar</button>
         </Form>
         <ToastContainer
           position="top-right"

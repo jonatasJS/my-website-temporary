@@ -50,7 +50,7 @@ export const Form = styled.form<FormProps>`
 
   input::placeholder,
   textarea::placeholder {
-    color: #ababab;
+    /* color: #ababab; */
   }
 
   br + input {
@@ -65,29 +65,36 @@ export const Form = styled.form<FormProps>`
 
   button {
     margin: 15px 0;
-    font-family: 'Source Sans Pro, Ubuntu', sans-serif;
     font-size: 20px;
     border: 0;
+    height: 40px;
     border-radius: 6px;
-    color: #fff;
-    background-color: #6473f5;
-    font-weight: 700;
     padding: 6px 14px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Source Sans Pro, Ubuntu', sans-serif;
+    font-weight: 700;
+    color: #fff;
+	  background-color: #256ce1;
     transition: background-color 200ms;
+	  transition: all .1s ease-in-out;
     ${(props): FlattenSimpleInterpolation =>
-      props.loading === 1
-        ? css`
+    props.loading === 1
+      ? css`
             opacity: 0.7;
             pointer-events: none;
           `
-        : css`
+      : css`
             pointer-events: all;
             opacity: 1;
           `}
   }
 
   button:hover {
-    background-color: #8692ff;
+	  transition: all .1s ease-in-out;
+    background-color: #15cdfc;
+    box-shadow: 0 0 10px 5px #15cdfc;
   }
 
   @media (max-width: 950px) {

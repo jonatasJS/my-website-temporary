@@ -1,13 +1,18 @@
 .nav {
 	height: 80px;
+	position: fixed;
 	display: flex;
-	background-color: #000;
+	background-color: rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(4px);
+	border: 2px solid rgba(0, 0, 0, 0.1);
 	justify-content: space-between;
+	align-items: center;
 	padding: .5rem calc((100vw - 1000px) / 2);
 	width: 100vw;
-	position: fixed;
 	z-index: 10;
 	margin-bottom: 2rem;
+	max-width: 100%;
+	transition: all .1s ease-in-out;
 }
 
 /* .nav::after {
@@ -38,15 +43,32 @@
 	cursor: pointer;
 	justify-content: center;
 	align-items: center;
+	transition: all .1s ease-in-out;
 }
 
-.nav:hover a:hover {
+.nav a:hover {
 	text-shadow: 0 0 10px white;
+	transition: all .1s ease-in-out;
 }
 
 .title {
 	color: #fff;
 	margin-left: 2.5rem;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	transition: all .1s ease-in-out;
+}
+
+.title h1 span {
+	color: #256ce1;
+	transition: all .1s ease-in-out;
+}
+
+.title:hover h1 span {
+	color: #15cdfc;
+	text-shadow: 0 0 10px #15cdfc;
+	transition: all .1s ease-in-out;
 }
 
 .bars {
@@ -64,6 +86,7 @@
 	display: flex;
 	align-items: center;
 	margin-right: 24px;
+	height: 60px;
 }
 
 .navBtnLink {
@@ -74,12 +97,12 @@
 	border: none;
 	outline: none;
 	cursor: pointer;
-	transition: all .2s ease-in-out;
+	transition: all .1s ease-in-out;
 	text-decoration: none;
 }
 
 .navBtnLink:hover {
-	transition: all .2s ease-in-out;
+	transition: all .1s ease-in-out;
 	background: #15cdfc;
 	box-shadow: 0 0 10px 5px #15cdfc;
 	color: #fff;
@@ -89,6 +112,7 @@
 	display: flex;
 	align-items: center;
 	margin-left: -10%;
+	margin-right: 4%;
 }
 
 .toogleTheme  svg {
@@ -119,16 +143,19 @@
 }
 
 a.active {
-	color: #15cdfc;
+	color: #256ce1;
 	display: flex;
 	align-items: center;
 	text-decoration: none;
 	padding: 0 1rem;
 	height: 100%;
 	cursor: pointer;
+	transition: all .1s ease-in-out;
 }
 
 a.active:hover {
+	transition: all .1s ease-in-out;
+	color: #15cdfc;
 	text-shadow: 0 0 10px #15cdfc;
 }
 
@@ -145,7 +172,7 @@ a.active:hover {
 	.navBtn {
 		display: flex;
 	}
-	.navMenu, .navBtn {
+	.navMenu, .navBtn, .toogleTheme {
 		display: none;
 	}
 	.bars {

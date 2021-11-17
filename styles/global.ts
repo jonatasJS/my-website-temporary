@@ -160,7 +160,7 @@ const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
           textarea {
             border: 1px solid #e3e3e3;
             background-color: #e3e3e3;
-            color: #858585;
+            color: #2d2e32;
           }
 
           #thumbnail {
