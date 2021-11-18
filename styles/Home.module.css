@@ -387,9 +387,9 @@
 }
 
 .buttonToUp {
-  font-size: 1.5rem;
-  text-align: center;
-  transform: rotate(-45deg);
+	font-size: 1.5rem;
+	text-align: center;
+	transform: rotate(-45deg);
 	border: none;
 	background: rgb(64, 65, 67);
 	color: white;
@@ -418,8 +418,8 @@
 }
 
 .buttonToUp span {
-    margin-top: .4rem;
-    margin-right: .2rem;
+	margin-top: .4rem;
+	margin-right: .2rem;
 }
 
 /* 
@@ -483,7 +483,7 @@
 
 .buttonToUp:hover {
 	background: rgb(99, 101, 104);
-    transform: rotate(-45deg);
+	transform: rotate(-45deg);
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 	/* color:  #5383d3; */
 	-webkit-animation-duration: 1s;
@@ -525,6 +525,30 @@
 	}
 }
 
-.adslot_1 { width: 320px; height: 100px; }
-@media (min-width:500px) { .adslot_1 { width: 468px; height: 60px; } }
-@media (min-width:800px) { .adslot_1 { width: 728px; height: 90px; } }
+@media screen and (max-width: 768px) {
+	.buttonToUp {
+		display: none;
+	}
+	.main {
+		padding: 0 0;
+	}
+}
+
+.adslot_1 {
+	width: 320px;
+	height: 100px;
+}
+
+@media (min-width:500px) {
+	.adslot_1 {
+		width: 468px;
+		height: 60px;
+	}
+}
+
+@media (min-width:800px) {
+	.adslot_1 {
+		width: 728px;
+		height: 90px;
+	}
+}

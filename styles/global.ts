@@ -136,6 +136,23 @@ const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
           #green-text {
             color: #64f4ac;
           }
+          ::-webkit-scrollbar{
+            width: 10px;
+            height: 10px;
+            z-index: 9999;
+          }
+          ::-webkit-scrollbar-thumb{
+            background: #000;
+            border-radius: 30px;
+          }
+          ::-webkit-scrollbar-thumb:hover{
+            background: #222;
+          }
+          ::-webkit-scrollbar-track{
+            background: transparent;
+            backdrop-filter: blur(10px);
+            box-shadow: inset 0 0 12px 0px rgba(0, 0, 0, .2);
+          }
         `
       : css`
           body {
@@ -169,6 +186,23 @@ const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
 
           #green-text {
             color: #2dbf76;
+          }
+          ::-webkit-scrollbar{
+            width: 10px;
+            height: 10px;
+            z-index: 9999;
+          }
+          ::-webkit-scrollbar-thumb{
+            background: #000;
+            border-radius: 30px;
+          }
+          ::-webkit-scrollbar-thumb:hover{
+            background: #222;
+          }
+          ::-webkit-scrollbar-track{
+            background: transparent;
+            backdrop-filter: blur(10px);
+            box-shadow: inset 0 0 12px 0px rgba(0, 0, 0, .2);
           }
         `}
 `;

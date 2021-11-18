@@ -19,6 +19,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@iconscout/react-unicons": "^1.1.6",
     "@zeit/next-sass": "^1.0.1",
     "firebase": "^9.4.1",
     "framer-motion": "^5.2.0",

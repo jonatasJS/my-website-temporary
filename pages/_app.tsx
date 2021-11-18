@@ -19,24 +19,6 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     <ThemeProvider>
       <Head>
         <link rel="icon" href={"/next-rocket-logo.png" || "https://i.imgur.com/XG63jgi.png"} />
-        {/* <style>
-          {`::-webkit-scrollbar{
-            width: 10px;
-            height: 10px;
-            padding-top: 80px;
-          }
-          ::-webkit-scrollbar-thumb{
-            background: #2d2e32;
-            border-radius: 30px;
-          }
-          ::-webkit-scrollbar-thumb:hover{
-            background: #1e1e1f;
-          }
-          ::-webkit-scrollbar-track{
-            background: black;
-            box-shadow: 0 0 12px 0px #000;
-          }`}
-        </style> */}
       </Head>
       <motion.div
         key={router.route}

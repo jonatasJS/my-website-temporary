@@ -2,7 +2,17 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import { FaBars as BarsIcon } from 'react-icons/fa';
-import { MdOutlineNightlight as MoonIcon, MdOutlineLightMode as SunIcon } from 'react-icons/md';
+import {
+	UilMoon as Moon,
+	UilSun as Sun,
+	UilEstate as Home,
+	UilUser as About,
+	UilFileAlt as Skill,
+	UilBriefcaseAlt as Services,
+	UilMessage as Contacts,
+	UilTimes as Exit,
+	UilApps as Menu
+} from '@iconscout/react-unicons';
 
 import { useTheme } from '../../contexts/ThemeContext';
 import { I18n } from '../../translate/i18n';
@@ -10,7 +20,8 @@ import style from '../../styles/NavStyle.module.css';
 
 export default function Navbar() {
 	const [pathname, setPathname] = useState(String);
-	const [limited, setLimited] = useState(String);
+	const [toogledSidebarMobile, setToogledSidebarMobile] = useState(false);
+	const [toogledSidebarMobiled, setToogledSidebarMobiled] = useState(false);
 	const { changeTheme, theme, lock } = useTheme();
 	const path = Router;
 
@@ -18,92 +29,191 @@ export default function Navbar() {
 		if (localStorage.getItem('theme') == '' || localStorage.getItem('theme') == null) localStorage.setItem('theme', 'light');
 		const route = path.asPath;
 
+		
 		setPathname(route)
 	}, []);
-
+	
+	setInterval(() => {if (document?.height <= 768) setToogledSidebarMobiled(true)}, 200)
 	// useEffect(function mont() {
-  //   function onScroll() {
+	//   function onScroll() {
 	// 		const footer = document.querySelector('footer')
 	// 		const total: number = footer?.offsetHeight + 40 + 80
-			
-  //     if (document.body.scrollHeight == total || document.documentElement.scrollHeight == total) {
+
+	//     if (document.body.scrollHeight == total || document.documentElement.scrollHeight == total) {
 	// 			setLimited("absolute");
 	// 		} else {
 	// 			setLimited("fixed");
-  //     }
-  //   }
+	//     }
+	//   }
 
-  //   window.addEventListener("scroll", onScroll);
-  // });
+	//   window.addEventListener("scroll", onScroll);
+	// });
 
 	return (
 		<>
-			<nav className={style.nav}>
+			<nav className={toogledSidebarMobile ? style.navMenuMobile : style.nav}>
 				<Link href="/">
 					<a className={style.title}>
 						<h1>Next <span>Rocket</span></h1>
+						<div className={style.toogleTheme}>
+							{theme == 'dark' ?
+								<Moon
+									className={style.moonIcon}
+									title={`Toogle theme to ${theme == 'dark' && 'light!'}`}
+									width="20"
+									height="20"
+									onClick={changeTheme}
+								/>
+								:
+								<Sun
+									className={style.sunIcon}
+									title={`Toogle theme to ${theme == 'light' && 'dark!'}`}
+									width="20"
+									height="20"
+									onClick={changeTheme}
+								/>}
+							{toogledSidebarMobile == false ? '' :
+								<Exit
+									className={style.exit}
+									onClick={() => setToogledSidebarMobile(!toogledSidebarMobile)}
+								/>}
+						</div>
 					</a>
 				</Link>
-				<BarsIcon className={style.bars} />
 				<div className={style.navMenu}>
-					<Link href="/">
-						{pathname == '/' ? (
-							<a className={style.active}>
-								{I18n.t('messages.home')}
-							</a>
-						) : (
-							<a className={style.navLink}>
-								{I18n.t('messages.home')}
-							</a>
-						)}
-					</Link>
-					<Link href="/contact">
-						{pathname == '/contact' ? (
-							<a className={style.active}>
-								{I18n.t('messages.contact')}
-							</a>
-						) : (
-							<a className={style.navLink}>
-								{I18n.t('messages.contact')}
-							</a>
-						)}
-					</Link>
-					<Link href="/about">
-						{pathname == '/about' ? (
-							<a className={style.active}>
-								{I18n.t('messages.aboutUs')}
-							</a>
-						) : (
-							<a className={style.navLink}>
-								{I18n.t('messages.aboutUs')}
-							</a>
-						)}
-					</Link>
-					<Link href="/signup">
-						Sign Up
-					</Link>
+					<ul>
+						<li>
+							<Link href="/">
+								{pathname == '/' ? (
+									<a className={style.active}>
+										<Home
+											width="20"
+											height="20"
+										/>
+										{I18n.t('messages.home')}
+									</a>
+								) : (
+									<a className={style.navLink}>
+										<Home
+											width="20"
+											height="20"
+										/>
+										{I18n.t('messages.home')}
+									</a>
+								)}
+							</Link>
+						</li>
+						<li>
+							<Link href="/contact">
+								{pathname == '/contact' ? (
+									<a className={style.active}>
+										<Contacts
+											width="20"
+											height="20"
+										/>
+										{I18n.t('messages.contact')}
+									</a>
+								) : (
+									<a className={style.navLink}>
+										<Contacts
+											width="20"
+											height="20"
+										/>
+										{I18n.t('messages.contact')}
+									</a>
+								)}
+							</Link>
+						</li>
+						<li>
+							<Link href="/about">
+								{pathname == '/about' ? (
+									<a className={style.active}>
+										<About
+											width="20"
+											height="20"
+										/>
+										{I18n.t('messages.aboutUs')}
+									</a>
+								) : (
+									<a className={style.navLink}>
+										<About
+											width="20"
+											height="20"
+										/>
+										{I18n.t('messages.aboutUs')}
+									</a>
+								)}
+							</Link>
+						</li>
+						<li>
+							<Link href="/services">
+								{pathname == '/services' ? (
+									<a className={style.active}>
+										<Services
+											width="20"
+											height="20"
+										/>
+										Skills
+									</a>
+								) : (
+									<a className={style.navLink}>
+										<Services
+											width="20"
+											height="20"
+										/>
+										Serviços
+									</a>
+								)}
+							</Link>
+						</li>
+						<li>
+							<Link href="/skills">
+								{pathname == '/skills' ? (
+									<a className={style.active}>
+										<Skill
+											width="20"
+											height="20"
+										/>
+										Skills
+									</a>
+								) : (
+									<a className={style.navLink}>
+										<About
+											width="20"
+											height="20"
+										/>
+										Skills
+									</a>
+								)}
+							</Link>
+						</li>
+						<li>
+							<Link href="/signup">
+								Sign Up
+							</Link>
+						</li>
+					</ul>
+
+					{toogledSidebarMobile == true &&
+						<div>
+							<nav className={style.navBtn}>
+								<Link href="/signin"><a className={style.navBtnLink}>Sign In</a></Link>
+							</nav>
+						</div>}
 				</div>
-				<nav className={style.navBtn}>
-					<Link href="/signin"><a className={style.navBtnLink}>Sign In</a></Link>
-				</nav>
-				<div className={style.toogleTheme}>
-					{theme == 'dark' ?
-						<MoonIcon
-							className={style.moonIcon}
-							title={`Toogle theme to ${theme == 'dark' && 'light'}`}
-							width="10"
-							height="10"
-							onClick={changeTheme}
-						/>
-						:
-						<SunIcon
-							className={style.sunIcon}
-							title={`Toogle theme to ${theme == 'light' && 'dark'}`}
-							width="10"
-							height="10"
-							onClick={changeTheme}
-						/>}
-				</div>
+
+				{toogledSidebarMobiled == true &&
+					<div>
+						<nav className={style.navBtn}>
+							<Link href="/signin"><a className={style.navBtnLink}>Sign In</a></Link>
+						</nav>
+					</div>}
+
+				{toogledSidebarMobile == true ? '' :
+					<Menu
+						className={style.bars}
+						onClick={() => setToogledSidebarMobile(!toogledSidebarMobile)}
+					/>}
 			</nav>
 		</>
 	);

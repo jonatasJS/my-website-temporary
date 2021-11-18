@@ -1,5 +1,6 @@
 .nav {
 	height: 80px;
+	padding-right: 3.6%;
 	position: fixed;
 	display: flex;
 	background-color: rgba(0, 0, 0, 0.3);
@@ -10,7 +11,7 @@
 	padding: .5rem calc((100vw - 1000px) / 2);
 	width: 100vw;
 	z-index: 10;
-	margin-bottom: 2rem;
+	/* margin-bottom: 2rem; */
 	max-width: 100%;
 	transition: all .1s ease-in-out;
 }
@@ -33,9 +34,10 @@
 	height: 85px;
 } */
 
-.nav a {
+.nav a.title {
 	color: #fff;
 	display: flex;
+	flex-direction: row-reverse;
 	align-items: center;
 	text-decoration: none;
 	padding: 0 1rem;
@@ -46,9 +48,28 @@
 	transition: all .1s ease-in-out;
 }
 
-.nav a:hover {
+.nav a.title h1:hover {
 	text-shadow: 0 0 10px white;
 	transition: all .1s ease-in-out;
+}
+
+.nav a.title div.toogleTheme {
+	margin-right: 35%;
+	margin-left: -50%;
+}
+
+.nav .navMenu ul {
+	display: flex;
+	font-size: .5rem;
+	gap: 10px;
+	align-items: center;
+	justify-content: center;
+}
+
+.nav div ul li a svg {
+	display: none;
+	height: 20px;
+	width: 20px;
 }
 
 .title {
@@ -65,14 +86,22 @@
 	transition: all .1s ease-in-out;
 }
 
-.title:hover h1 span {
+.title h1:hover span {
 	color: #15cdfc;
 	text-shadow: 0 0 10px #15cdfc;
 	transition: all .1s ease-in-out;
 }
 
+.exit {
+	display: none;
+	width: 24px;
+	height: 24px;
+	margin-bottom: .2%;
+}
+
 .bars {
 	display: none;
+	margin-top: 1%;
 	color: #fff;
 }
 
@@ -80,6 +109,83 @@
 	display: flex;
 	align-items: center;
 	margin-right: -24px;
+}
+
+.navMenuMobile {
+	position: fixed;
+	border-radius: 1.5rem 1.5rem 0 0;
+	bottom: 0;
+	left: 0;
+	width: 100vw;
+	padding: 2rem 1.5rem 4rem;
+	/* padding-right: 3.6%; */
+	transition: all .3s linear;
+	background-color: rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(4px);
+	border: 2px solid rgba(0, 0, 0, 0.1);
+	align-items: center;
+	z-index: 10;
+	box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
+	transition: all .1s ease-in-out;
+}
+
+.navMenuMobile  a.title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+}
+
+.navMenuMobile  a.title h1 {
+	margin-top: -1rem;
+	margin-bottom: 1rem;
+	font-size: 2rem;
+}
+
+.navMenuMobile a.title div.toogleTheme {
+	display: flex;
+	height: 20px;
+	justify-content: center;
+	align-items: center;
+	margin: -2rem 1rem 0 0;
+	gap: 2rem;
+}
+
+.navMenuMobile a.title div.toogleTheme svg.exit {
+	display: block;
+	height: 30px;
+	width: 30px;
+}
+
+.navMenuMobile a.title div.toogleTheme svg.bars {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: translate(-100%, 75%);
+	font-size: 1.8rem;
+	cursor: pointer;
+}
+
+.navMenuMobile .navMenu {
+	display: block;
+}
+
+.navMenuMobile .navMenu ul {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 30px;
+	justify-content: center;
+	align-items: center;
+}
+
+.navMenuMobile .navMenu ul li a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-size: 1rem;
+	gap: 5px;
 }
 
 .navBtn {
@@ -115,12 +221,10 @@
 	margin-right: 4%;
 }
 
-.toogleTheme  svg {
+.toogleTheme svg {
 	transition: all .5s linear;
-
 	height: 20px;
 	width: 20px;
-	
 	align-items: center;
 	justify-content: center;
 }
@@ -137,13 +241,13 @@
 	color: yellow;
 }
 
-.moonIcon,
-.sunIcon {
+.moonIcon, .sunIcon {
 	cursor: pointer;
 }
 
 a.active {
 	color: #256ce1;
+	fill:	#256ce1;
 	display: flex;
 	align-items: center;
 	text-decoration: none;
@@ -156,10 +260,16 @@ a.active {
 a.active:hover {
 	transition: all .1s ease-in-out;
 	color: #15cdfc;
+	fill:	#15cdfc;
 	text-shadow: 0 0 10px #15cdfc;
 }
 
+
 @media screen and (max-width: 768px) {
+	.nav {
+		bottom: 0;
+		left: 0;
+	}
 	.bars {
 		display: block;
 		position: absolute;
@@ -172,16 +282,25 @@ a.active:hover {
 	.navBtn {
 		display: flex;
 	}
+	.nav {
+		border-radius: 1.5rem 1.5rem 0 0;
+	}
 	.navMenu, .navBtn, .toogleTheme {
 		display: none;
 	}
-	.bars {
-		display: block;
-		position: absolute;
+	.toogleTheme {
 		top: 0;
 		right: 0;
-		transform: translate(-100%, 75%);
-		font-size: 1.8rem;
-		cursor: pointer;
+	}
+	.navBtn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-left: 4%;
+		margin-top: 10%;
+		margin-bottom: -10%;
+	}
+	.nav ul li a svg {
+		display: block;
 	}
 }
