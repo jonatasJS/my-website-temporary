@@ -66,6 +66,10 @@
 	justify-content: center;
 }
 
+.nav .navMenu ul li a i {
+	display: none;
+}
+
 .nav div ul li a svg {
 	display: none;
 	height: 20px;
@@ -301,6 +305,9 @@ a.active:hover {
 		margin-bottom: -10%;
 	}
 	.nav ul li a svg {
+		display: block;
+	}
+	.nav .navMenu ul li a i {
 		display: block;
 	}
 }
