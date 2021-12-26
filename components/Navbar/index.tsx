@@ -53,11 +53,6 @@ export default function Navbar() {
 	return (
 		<>
 			<nav className={toogledSidebarMobile ? style.navMenuMobile : style.nav}>
-				<Link href="/">
-					<a className={style.title}>
-						<h1>Next <span>Rocket</span></h1>
-					</a>
-				</Link>
 				<div className={style.toogleTheme}>
 					{theme == 'dark' ?
 						<i
@@ -77,6 +72,11 @@ export default function Navbar() {
 							onClick={() => setToogledSidebarMobile(!toogledSidebarMobile)}
 						/>}
 				</div>
+				<Link href="/">
+					<a className={style.title}>
+						<h1>Next <span>Rocket</span></h1>
+					</a>
+				</Link>
 				<div className={style.navMenu}>
 					<ul>
 						<li>
