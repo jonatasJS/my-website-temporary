@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
-import cx  from 'classnames';
+import cx from 'classnames';
 // import { FaBars as BarsIcon } from 'react-icons/fa';
 // import {
 // 	UilMoon as Moon,
@@ -30,10 +30,10 @@ export default function Navbar() {
 		if (localStorage.getItem('theme') == '' || localStorage.getItem('theme') == null) localStorage.setItem('theme', 'light');
 		const route = path.asPath;
 
-		
+
 		setPathname(route)
 	}, []);
-	
+
 	/* setInterval(() => {if (document?.height <= 768) setToogledSidebarMobiled(true)}, 200)
 	// useEffect(function mont() {
 	//   function onScroll() {
@@ -56,27 +56,27 @@ export default function Navbar() {
 				<Link href="/">
 					<a className={style.title}>
 						<h1>Next <span>Rocket</span></h1>
-						<div className={style.toogleTheme}>
-							{theme == 'dark' ?
-								<i
-									className={cx(`${style.moonIcon}`, 'uil uil-moon')}
-									title={`Toogle theme to ${theme == 'dark' && 'light!'}`}
-									onClick={changeTheme}
-								/>
-								:
-								<i
-									className={cx(`${style.sunIcon}`, 'uil uil-sun')}
-									title={`Toogle theme to ${theme == 'light' && 'dark!'}`}
-									onClick={changeTheme}
-								/>}
-							{toogledSidebarMobile == false ? '' :
-								<i
-									className={cx(style.exit, 'uil uil-times')}
-									onClick={() => setToogledSidebarMobile(!toogledSidebarMobile)}
-								/>}
-						</div>
 					</a>
 				</Link>
+				<div className={style.toogleTheme}>
+					{theme == 'dark' ?
+						<i
+							className={cx(`${style.moonIcon}`, 'uil uil-moon')}
+							title={`Toogle theme to ${theme == 'dark' && 'light!'}`}
+							onClick={changeTheme}
+						/>
+						:
+						<i
+							className={cx(`${style.sunIcon}`, 'uil uil-sun')}
+							title={`Toogle theme to ${theme == 'light' && 'dark!'}`}
+							onClick={changeTheme}
+						/>}
+					{toogledSidebarMobile == false ? '' :
+						<i
+							className={cx(style.exit, 'uil uil-times')}
+							onClick={() => setToogledSidebarMobile(!toogledSidebarMobile)}
+						/>}
+				</div>
 				<div className={style.navMenu}>
 					<ul>
 						<li>
