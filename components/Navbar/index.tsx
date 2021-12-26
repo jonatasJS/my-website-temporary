@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
-import { FaBars as BarsIcon } from 'react-icons/fa';
-import {
-	UilMoon as Moon,
-	UilSun as Sun,
-	UilEstate as Home,
-	UilUser as About,
-	UilFileAlt as Skill,
-	UilBriefcaseAlt as Services,
-	UilMessage as Contacts,
-	UilTimes as Exit,
-	UilApps as Menu
-} from '@iconscout/react-unicons';
+import cx  from 'classnames';
+// import { FaBars as BarsIcon } from 'react-icons/fa';
+// import {
+// 	UilMoon as Moon,
+// 	UilSun as Sun,
+// 	UilEstate as Home,
+// 	UilUser as About,
+// 	UilFileAlt as Skill,
+// 	UilBriefcaseAlt as Services,
+// 	UilMessage as Contacts,
+// 	UilTimes as Exit,
+// 	UilApps as Menu
+// } from '@iconscout/react-unicons';
 
 import { useTheme } from '../../contexts/ThemeContext';
 import { I18n } from '../../translate/i18n';
@@ -33,7 +34,7 @@ export default function Navbar() {
 		setPathname(route)
 	}, []);
 	
-	setInterval(() => {if (document?.height <= 768) setToogledSidebarMobiled(true)}, 200)
+	/* setInterval(() => {if (document?.height <= 768) setToogledSidebarMobiled(true)}, 200)
 	// useEffect(function mont() {
 	//   function onScroll() {
 	// 		const footer = document.querySelector('footer')
@@ -47,7 +48,7 @@ export default function Navbar() {
 	//   }
 
 	//   window.addEventListener("scroll", onScroll);
-	// });
+	// }); */
 
 	return (
 		<>
@@ -57,24 +58,20 @@ export default function Navbar() {
 						<h1>Next <span>Rocket</span></h1>
 						<div className={style.toogleTheme}>
 							{theme == 'dark' ?
-								<Moon
-									className={style.moonIcon}
+								<i
+									className={cx(`${style.moonIcon}`, 'uil uil-moon')}
 									title={`Toogle theme to ${theme == 'dark' && 'light!'}`}
-									width="20"
-									height="20"
 									onClick={changeTheme}
 								/>
 								:
-								<Sun
-									className={style.sunIcon}
+								<i
+									className={cx(`${style.sunIcon}`, 'uil uil-sun')}
 									title={`Toogle theme to ${theme == 'light' && 'dark!'}`}
-									width="20"
-									height="20"
 									onClick={changeTheme}
 								/>}
 							{toogledSidebarMobile == false ? '' :
-								<Exit
-									className={style.exit}
+								<i
+									className={cx(style.exit, 'uil uil-times')}
 									onClick={() => setToogledSidebarMobile(!toogledSidebarMobile)}
 								/>}
 						</div>
@@ -86,17 +83,15 @@ export default function Navbar() {
 							<Link href="/">
 								{pathname == '/' ? (
 									<a className={style.active}>
-										<Home
-											width="20"
-											height="20"
+										<i
+											className={cx('uil uil-estate')}
 										/>
 										{I18n.t('messages.home')}
 									</a>
 								) : (
 									<a className={style.navLink}>
-										<Home
-											width="20"
-											height="20"
+										<i
+											className={cx('uil uil-estate')}
 										/>
 										{I18n.t('messages.home')}
 									</a>
@@ -107,17 +102,15 @@ export default function Navbar() {
 							<Link href="/contact">
 								{pathname == '/contact' ? (
 									<a className={style.active}>
-										<Contacts
-											width="20"
-											height="20"
+										<i
+											className={cx('uil uil-message')}
 										/>
 										{I18n.t('messages.contact')}
 									</a>
 								) : (
 									<a className={style.navLink}>
-										<Contacts
-											width="20"
-											height="20"
+										<i
+											className={cx('uil uil-message')}
 										/>
 										{I18n.t('messages.contact')}
 									</a>
@@ -128,17 +121,15 @@ export default function Navbar() {
 							<Link href="/about">
 								{pathname == '/about' ? (
 									<a className={style.active}>
-										<About
-											width="20"
-											height="20"
+										<i
+											className={cx('uil uil-user')}
 										/>
 										{I18n.t('messages.aboutUs')}
 									</a>
 								) : (
 									<a className={style.navLink}>
-										<About
-											width="20"
-											height="20"
+										<i
+											className={cx('uil uil-user')}
 										/>
 										{I18n.t('messages.aboutUs')}
 									</a>
@@ -149,17 +140,15 @@ export default function Navbar() {
 							<Link href="/services">
 								{pathname == '/services' ? (
 									<a className={style.active}>
-										<Services
-											width="20"
-											height="20"
+										<i
+											className={cx('uil uil-briefcase-alt')}
 										/>
 										Skills
 									</a>
 								) : (
 									<a className={style.navLink}>
-										<Services
-											width="20"
-											height="20"
+										<i
+											className={cx('uil uil-briefcase-alt')}
 										/>
 										Serviços
 									</a>
@@ -170,17 +159,15 @@ export default function Navbar() {
 							<Link href="/skills">
 								{pathname == '/skills' ? (
 									<a className={style.active}>
-										<Skill
-											width="20"
-											height="20"
+										<i
+											className={cx('uil uil-file-alt')}
 										/>
 										Skills
 									</a>
 								) : (
 									<a className={style.navLink}>
-										<About
-											width="20"
-											height="20"
+										<i
+											className={cx('uil uil-user')}
 										/>
 										Skills
 									</a>
@@ -210,8 +197,8 @@ export default function Navbar() {
 					</div>}
 
 				{toogledSidebarMobile == true ? '' :
-					<Menu
-						className={style.bars}
+					<i
+						className={cx(style.bars, 'uil uil-apps')}
 						onClick={() => setToogledSidebarMobile(!toogledSidebarMobile)}
 					/>}
 			</nav>

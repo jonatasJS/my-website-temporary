@@ -58,6 +58,10 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
             rel="stylesheet"
           />
+          <link
+            rel="stylesheet"
+            href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+          />
           <meta property="og:locale" content="pt_BR"></meta>
           <meta property="og:url" content="https://jonatas.app"></meta>
           <meta property="og:title" content="Next Rocket - Crie seu site conosco" />

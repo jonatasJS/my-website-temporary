@@ -527,7 +527,8 @@
 
 @media screen and (max-width: 768px) {
 	.buttonToUp {
-		display: none;
+		/* display: none; */
+		margin-bottom: 9rem;
 	}
 	.main {
 		padding: 0 0;
