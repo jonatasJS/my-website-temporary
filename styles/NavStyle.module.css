@@ -78,10 +78,11 @@
 
 .title {
 	color: #fff;
-	margin-left: 2.5rem;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
+    width: 122px !important;
+    margin-left: -5rem !important;
 	transition: all .1s ease-in-out;
 }
 
