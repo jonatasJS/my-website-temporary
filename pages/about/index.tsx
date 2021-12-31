@@ -129,7 +129,20 @@ export default function Contato(): JSX.Element {
         <meta name="og:title" property="og:title" content="Entre em contato" />
       </Head>
       <Container>
-        <h1>TESTE</h1>
+        <Form onSubmit={onHandleSubmit} loading={loading}>
+          <h1>TESTE</h1>
+        </Form>
+        <ToastContainer
+          position="top-right"
+          autoClose={4000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </Container>
       <audio
         id="audio"
