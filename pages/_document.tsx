@@ -7,11 +7,18 @@ import Document, {
   DocumentContext
 } from 'next/document';
 import { ServerStyleSheet } from "styled-components";
+import SitemapGenerator from 'sitemap-generator';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
+    SitemapGenerator('https://jonatas.app', {
+      maxDepth: 0,
+      filepath: './sitemap.xml',
+      maxEntriesPerFile: 50000,
+      stripQuerystring: true
+    });
 
     try {
       ctx.renderPage = () =>
