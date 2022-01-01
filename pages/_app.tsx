@@ -27,7 +27,6 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         <link rel="stylesheet" href="nprogress.css" />
         <link rel="icon" href={"/next-rocket-logo.png" || "https://i.imgur.com/XG63jgi.png"} />
       </Head>
-      <div>
         {/* <ChangeLanguage /> */}
         <motion.div
         key={router.route}
@@ -74,7 +73,6 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           });
         `}
         </Script>
-        </div>
     </ThemeProvider>
   )
 }
