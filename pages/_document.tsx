@@ -78,6 +78,9 @@ class MyDocument extends Document {
           <meta property="og:image:type" content="image/png" />
           <meta property="og:image:width" content="800" />
           <meta property="og:image:height" content="600" />
+          <meta name="google" content="nositelinkssearchbox" />
+          <meta name="google" content="nopagereadaloud" />
+          
         </Head>
         <body>
           {/* <Navbar /> */}
