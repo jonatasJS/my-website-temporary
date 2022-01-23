@@ -88,7 +88,7 @@ class MyDocument extends Document {
           <NextScript />
           <script async src="https://kit.fontawesome.com/3af35cbbff.js" crossOrigin="anonymous"></script>
           <script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossOrigin="anonymous"></script>
-
+          <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=6e248851-305b-406f-b9c6-582efcb336ab"> </script>
         </body>
       </Html>
     );
