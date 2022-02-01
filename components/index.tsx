@@ -1,14 +1,13 @@
 import React, { useEffect } from "react"
 
-declare const win: Window &
-   typeof globalThis & {
+declare const win: Window & typeof globalThis & {
      adsbygoogle: any
    }
 
 const SideAd = () => {
   useEffect(() => {
     const pushAd = () => {
-        if (win?.adsbygoogle) {
+        if (window || win.adsbygoogle) {
           try {
           const adsbygoogle = win?.adsbygoogle
           console.log({ adsbygoogle })
@@ -21,7 +20,7 @@ const SideAd = () => {
 
     let interval = setInterval(() => {
       // Check if Adsense script is loaded every 300ms
-      if (win.adsbygoogle) {
+      if (window || win.adsbygoogle) {
         pushAd()
         // clear the interval once the ad is pushed so that function isn't called indefinitely
         clearInterval(interval)
