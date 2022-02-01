@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from "framer-motion"
+import SideAd from "../components/SideAd"
 // import { Helmet } from 'react-helmet';
 
 // import Services from '../components/Services/index';
@@ -75,16 +76,7 @@ const Home: NextPage = () => {
           </a>
         </Link>
 
-        <ins className="adsbygoogle adslot_1"
-          style={styleAd}
-          data-ad-client="ca-pub-4515639184646084"
-          data-ad-slot="1607096764"
-          data-adtest="on"
-          data-ad-format="auto"
-          data-full-width-responsive="true"></ins>
-        <script>
-          {'window.onload = function() { (adsbygoogle = window.adsbygoogle || []).push({}) }'}
-        </script>
+        <SideAd />
       </main>
     </>
   )
